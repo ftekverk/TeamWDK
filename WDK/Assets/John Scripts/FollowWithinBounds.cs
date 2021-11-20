@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FollowPlayer : MonoBehaviour
+public class FollowWithinBounds : MonoBehaviour
 {
     //public GameObject player;
     public Transform player;

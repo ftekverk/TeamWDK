@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
                      Rigidbody2D playerRb;
                      Quaternion upright;
                      Vector3 mousePos;
-                     Vector3 mousePos2;
                      Vector3 playerPos;
 
     [SerializeField] int jumpSteps;
@@ -24,9 +23,8 @@ public class PlayerController : MonoBehaviour
                      float hInput;
                      float angle;
 
-                     bool jumping;
-                     bool grounded;
-    [SerializeField] bool leftMouseClicked;
+    bool jumping;
+    bool grounded;
 
     void Start()
     {
@@ -39,11 +37,10 @@ public class PlayerController : MonoBehaviour
     {
         RotatePlayer();
 
-        DetectGrounded();
+        grounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+        grounded = Physics2D.OverlapCircle(feetPos2.position, checkRadius, whatIsGround);
 
         JumpInput();
-
-        DetectMouseClick();
 
         if (jumping)
         {
@@ -63,14 +60,6 @@ public class PlayerController : MonoBehaviour
         playerRb.velocity = new Vector2(hInput * speed * Time.deltaTime, playerRb.velocity.y);
 
         Jump();
-
-        AddForce();
-    }
-
-    private void DetectGrounded()
-    {
-        grounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
-        grounded = Physics2D.OverlapCircle(feetPos2.position, checkRadius, whatIsGround);
     }
 
     private void Jump()
@@ -128,29 +117,16 @@ public class PlayerController : MonoBehaviour
 
     private void RotatePlayer()
     {
-        if (!grounded)
+        if (jumping)
         {
             mousePos = Input.mousePosition;
-            mousePos2 = Camera.main.ScreenToWorldPoint(mousePos);
+            playerPos = Camera.main.WorldToScreenPoint(transform.position);
 
-            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos2.y - transform.position.y, mousePos2.x - transform.position.x) * Mathf.Rad2Deg - 90);
+            mousePos.x = mousePos.x - playerPos.x;
+            mousePos.y = mousePos.y - playerPos.y;
+
+            angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
         } 
-    }
-
-    private void DetectMouseClick()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            leftMouseClicked = true;
-        }
-    }
-
-    private void AddForce()
-    {
-        if (leftMouseClicked)
-        {
-            playerRb.AddForce(new Vector2(100, 100), ForceMode2D.Impulse);
-            leftMouseClicked = false;
-        }
     }
 }

@@ -81,7 +81,7 @@ public class PlayerController : MonoBehaviour
             {
                 playerRb.velocity = new Vector2(playerRb.velocity.x, jumpSpeed);
                 stepsJumped++;
-            } 
+            }
             else
             {
                 StopJumpSlow();
@@ -92,7 +92,7 @@ public class PlayerController : MonoBehaviour
         {
             playerRb.velocity = new Vector2(playerRb.velocity.x, Mathf.Clamp(playerRb.velocity.y, -(Mathf.Abs(fallSpeed)), Mathf.Infinity));
         }
-        
+
     }
 
     private void JumpInput()
@@ -134,7 +134,7 @@ public class PlayerController : MonoBehaviour
             mousePos2 = Camera.main.ScreenToWorldPoint(mousePos);
 
             transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos2.y - transform.position.y, mousePos2.x - transform.position.x) * Mathf.Rad2Deg - 90);
-        } 
+        }
     }
 
     private void DetectMouseClick()

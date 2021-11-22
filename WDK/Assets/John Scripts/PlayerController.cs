@@ -15,18 +15,21 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] int jumpSteps;
                      int stepsJumped = 0;
+    [SerializeField] int recoilSteps;
+                     int stepsRecoiled = 0;
 
     [SerializeField] float speed;
     [SerializeField] float jumpSpeed;
     [SerializeField] float checkRadius;
     [SerializeField] float fallSpeed;
+    [SerializeField] float recoilForce;
                      float stopJumpThreshold = 7;
                      float hInput;
                      float angle;
 
                      bool jumping;
                      bool grounded;
-    [SerializeField] bool leftMouseClicked;
+                     bool leftMouseClicked;
 
     void Start()
     {
@@ -134,12 +137,12 @@ public class PlayerController : MonoBehaviour
             mousePos2 = Camera.main.ScreenToWorldPoint(mousePos);
 
             transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos2.y - transform.position.y, mousePos2.x - transform.position.x) * Mathf.Rad2Deg - 90);
-        } 
+        }
     }
 
     private void DetectMouseClick()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && leftMouseClicked == false)
         {
             leftMouseClicked = true;
         }
@@ -149,8 +152,16 @@ public class PlayerController : MonoBehaviour
     {
         if (leftMouseClicked)
         {
-            playerRb.AddForce(new Vector2(100, 100), ForceMode2D.Impulse);
-            leftMouseClicked = false;
+            if (stepsRecoiled < recoilSteps)
+            {
+                transform.Translate(Vector3.down * recoilForce);
+                stepsRecoiled++;
+            }
+            else
+            {
+                stepsRecoiled = 0;
+                leftMouseClicked = false;
+            }
         }
     }
 }

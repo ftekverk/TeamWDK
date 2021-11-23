@@ -63,11 +63,19 @@ public class PlayerController : MonoBehaviour
     {
         hInput = Input.GetAxis("Horizontal");
 
-        playerRb.velocity = new Vector2(hInput * speed * Time.deltaTime, playerRb.velocity.y);
-
+        if (leftMouseClicked == false)
+        {
+            playerRb.velocity = new Vector2(hInput * speed * Time.deltaTime, playerRb.velocity.y);
+        }
+        
         Jump();
 
         AddForce();
+
+        if (leftMouseClicked == true)
+        {
+            playerRb.velocity = new Vector2(playerRb.velocity.x, 0);
+        }
     }
 
     private void DetectGrounded()
@@ -145,6 +153,8 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && leftMouseClicked == false)
         {
             leftMouseClicked = true;
+
+            StopJumpQuick();
         }
     }
 

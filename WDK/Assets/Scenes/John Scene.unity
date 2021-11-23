@@ -797,9 +797,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   jumpSteps: 20
-  recoilSteps: 20
+  recoilSteps: 5
   speed: 350
   jumpSpeed: 10
   checkRadius: 1
   fallSpeed: 45
-  recoilForce: 0.1
+  recoilForce: 0.2

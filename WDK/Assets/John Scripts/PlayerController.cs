@@ -171,6 +171,7 @@ public class PlayerController : MonoBehaviour
             {
                 stepsRecoiled = 0;
                 leftMouseClicked = false;
+                playerRb.velocity = new Vector2(0, playerRb.velocity.y);
             }
         }
     }

@@ -7,6 +7,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Transform feetPos;
     [SerializeField] Transform feetPos2;
     [SerializeField] LayerMask whatIsGround;
+    [SerializeField] GameObject spawner;
+    [SerializeField] GameObject bullet;
                      Rigidbody2D playerRb;
                      Quaternion upright;
                      Vector3 mousePos;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
                      bool jumping;
                      bool grounded;
                      bool leftMouseClicked;
+                     bool bulletSpawned;
 
     void Start()
     {
@@ -167,6 +170,8 @@ public class PlayerController : MonoBehaviour
             {
                 transform.Translate(Vector3.down * recoilForce);
                 stepsRecoiled++;
+
+                Instantiate(bullet, spawner.transform, )
             }
             else
             {

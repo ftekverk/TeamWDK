@@ -8,7 +8,9 @@ public class PlayerJump : MonoBehaviour
     //public Animator animator;
     public Rigidbody2D rb;
     public float jumpForce = 20f;
+    public float bootForce = 5000f;
     public Transform feet;
+    public Transform head;
     public LayerMask groundLayer;
     //public LayerMask enemyLayer;
     public bool isAlive = true;
@@ -19,6 +21,8 @@ public class PlayerJump : MonoBehaviour
     public float checkRadius = 0.1f;
     public bool grounded;
 
+    //jump towards head
+    private Vector2 jumpDirection;
 
     void Start()
     {
@@ -28,6 +32,7 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        jumpDirection = head.position - transform.position;
         if ((Input.GetButtonDown("Jump")) && (IsGrounded() || doublejump) && (isAlive == true))
         {
             Jump();
@@ -40,6 +45,7 @@ public class PlayerJump : MonoBehaviour
 
     public void Jump()
     {
+        grounded = false;
         if(firstjump){
           rb.velocity = Vector2.up * jumpForce;
           firstjump = false;
@@ -48,7 +54,7 @@ public class PlayerJump : MonoBehaviour
         else{
           firstjump = true;
           doublejump = false;
-          rb.velocity = Vector2.up * jumpForce;
+          rb.velocity = jumpDirection * bootForce;
         }
 
 
@@ -68,7 +74,6 @@ public class PlayerJump : MonoBehaviour
             grounded = true;
             return true;
         }
-        grounded = false;
         return false;
     }
 }

@@ -5,10 +5,13 @@ using UnityEngine;
 public class PlayerRotate : MonoBehaviour
 {
     public PlayerJump jumpscript;
-    public float rotateSpeed = 20f;
+    //public float rotateSpeed = 5f; WHY THE FUCK CANT I PUT THAT IN ROTATE FUNC
     KeyCode rightRotate = KeyCode.X;
     KeyCode leftRotate = KeyCode.Z;
     // Start is called before the first frame update
+
+    Vector3 rotateMove;
+
     void Start()
     {
 
@@ -18,12 +21,22 @@ public class PlayerRotate : MonoBehaviour
     void Update()
     {
 
-      if (!jumpscript.grounded && jumpscript.isAlive )
+      if (!jumpscript.grounded)
       {
-          if (Input.GetKeyDown(rightRotate)) Debug.Log("Here2");
-          else if(Input.GetKeyDown(leftRotate)) transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+        //ask adam or john about why i cant put rotate speed in here
+          if (Input.GetKey(rightRotate)){
+              transform.Rotate(new Vector3( 0f, 0f, -1f) , 7f, Space.Self);
+          }
+          else if(Input.GetKey(leftRotate)){
+              transform.Rotate(new Vector3( 0f, 0f, -1f) , -7f, Space.Self);
+          }
 
-//transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
+
+
+
+
+          //transform.rotation = Quarternion.RotateTowards(transform.rotation, toRotation, rotateSpeed * Time.deltaTime);
+
 
       }
 

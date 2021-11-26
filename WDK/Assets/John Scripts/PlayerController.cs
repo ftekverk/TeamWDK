@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         { // Simple left/right movement
             playerRb.velocity = new Vector2(hInput * speed * Time.deltaTime, playerRb.velocity.y);
         }
-        
+
         Jump();
 
         AddForce();

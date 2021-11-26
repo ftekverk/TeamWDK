@@ -32,8 +32,9 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        grounded = IsGrounded();
         jumpDirection = head.position - transform.position;
-        if ((Input.GetButtonDown("Jump")) && (IsGrounded() || doublejump) && (isAlive == true))
+        if ((Input.GetButtonDown("Jump")) && (grounded || doublejump) && (isAlive == true))
         {
             Jump();
             // animator.SetTrigger("Jump");

@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
                      Rigidbody2D playerRb;
                      Quaternion upright;
                      Vector3 mousePos;
-                     Vector3 mousePos2;
+                     Vector3 mousePosWS;
                      Vector3 playerPos;
 
     [SerializeField] int jumpSteps;
@@ -146,9 +146,9 @@ public class PlayerController : MonoBehaviour
         if (!grounded)
         {
             mousePos = Input.mousePosition;
-            mousePos2 = Camera.main.ScreenToWorldPoint(mousePos);
+            mousePosWS = Camera.main.ScreenToWorldPoint(mousePos);
 
-            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePos2.y - transform.position.y, mousePos2.x - transform.position.x) * Mathf.Rad2Deg - 90);
+            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(mousePosWS.y - transform.position.y, mousePosWS.x - transform.position.x) * Mathf.Rad2Deg - 90);
         }
     }
 
@@ -183,7 +183,7 @@ public class PlayerController : MonoBehaviour
 
             if (bulletSpawned == false)
             {
-                Instantiate(bullet, spawner.transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos2.y - transform.position.y, mousePos2.x - transform.position.x) * Mathf.Rad2Deg - 90));
+                Instantiate(bullet, spawner.transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(mousePosWS.y - transform.position.y, mousePosWS.x - transform.position.x) * Mathf.Rad2Deg - 90));
                 bulletSpawned = true;
             }
         }

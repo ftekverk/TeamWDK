@@ -14,8 +14,8 @@ public class PlayerJump : MonoBehaviour
     public bool isAlive = true;
     //public AudioSource JumpSFX;
 
-    bool firstjump = true;
-    bool doublejump = false;
+    bool firstjump = true;  //true if we havent used our first jump yet
+    bool doublejump = false;  //true if able to double jump
     public float checkRadius = 0.1f;
     public bool grounded;
 
@@ -28,8 +28,7 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-        grounded = IsGrounded();
-        if ((Input.GetButtonDown("Jump")) && (grounded || doublejump) && (isAlive == true))
+        if ((Input.GetButtonDown("Jump")) && (IsGrounded() || doublejump) && (isAlive == true))
         {
             Jump();
             // animator.SetTrigger("Jump");
@@ -66,8 +65,10 @@ public class PlayerJump : MonoBehaviour
         {
             firstjump = true;
             doublejump = true; //allowed to double jump
+            grounded = true;
             return true;
         }
+        grounded = false;
         return false;
     }
 }

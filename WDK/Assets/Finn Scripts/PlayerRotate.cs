@@ -5,8 +5,9 @@ using UnityEngine;
 public class PlayerRotate : MonoBehaviour
 {
     public PlayerJump jumpscript;
-
-
+    public float rotateSpeed = 20f;
+    KeyCode rightRotate = KeyCode.X;
+    KeyCode leftRotate = KeyCode.Z;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,12 +20,11 @@ public class PlayerRotate : MonoBehaviour
 
       if (!jumpscript.grounded && jumpscript.isAlive )
       {
-        if ((Input.GetButtonDown("x")))
-        {
-            
-            // animator.SetTrigger("Jump");
-            // JumpSFX.Play();
-        }
+          if (Input.GetKeyDown(rightRotate)) Debug.Log("Here2");
+          else if(Input.GetKeyDown(leftRotate)) transform.Rotate(Vector3.forward * rotateSpeed * Time.deltaTime);
+
+//transform.Rotate(-Vector3.up * rotateSpeed * Time.deltaTime);
+
       }
 
     }

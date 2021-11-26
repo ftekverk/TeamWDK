@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
         { // Simple left/right movement
             playerRb.velocity = new Vector2(hInput * speed * Time.deltaTime, playerRb.velocity.y);
         }
-        
+
         Jump();
 
         AddForce();
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(Vector3.down * recoilForce);
                 stepsRecoiled++;
 
-                Instantiate(bullet, spawner.transform, )
+                //Instantiate(bullet, spawner.transform, ) --commented this out so it didnt bother me, Finn
             }
             else
             {

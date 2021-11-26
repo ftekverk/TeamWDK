@@ -171,12 +171,14 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(Vector3.down * recoilForce);
                 stepsRecoiled++;
 
-                Instantiate(bullet, spawner.transform, )
+                Instantiate(bullet, spawner.transform.position, Quaternion.Euler(0, 0, Mathf.Atan2(mousePos2.y - transform.position.y, mousePos2.x - transform.position.x) * Mathf.Rad2Deg - 90));
+                bulletSpawned = true;
             }
             else
             {
                 stepsRecoiled = 0;
                 leftMouseClicked = false;
+                bulletSpawned = false;
                 playerRb.velocity = new Vector2(0, playerRb.velocity.y);
             }
         }

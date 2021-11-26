@@ -16,7 +16,7 @@ public class PlayerJump : MonoBehaviour
     public bool isAlive = true;
     //public AudioSource JumpSFX;
 
-    bool firstjump = true;  //true if we havent used our first jump yet
+    //bool firstjump = true;  //true if we havent used our first jump yet
     bool doublejump = false;  //true if able to double jump
     public float checkRadius = 0.1f;
     public bool grounded;
@@ -32,49 +32,39 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-        grounded = IsGrounded();
+        IsGrounded();
         jumpDirection = head.position - transform.position;
-        if ((Input.GetButtonDown("Jump")) && (grounded || doublejump) && (isAlive == true))
+        if ((Input.GetButtonDown("Jump")) && (isAlive == true))
         {
-            Jump();
-            // animator.SetTrigger("Jump");
-            // JumpSFX.Play();
+            if(grounded) FirstJump();
+            else if(doublejump) SecondJump();
+            grounded = false;
         }
 
-
     }
-
-    public void Jump()
+    public void FirstJump()
     {
-        grounded = false;
-        if(firstjump){
-          rb.velocity = Vector2.up * jumpForce;
-          firstjump = false;
-          doublejump = true;
-        }
-        else{
-          firstjump = true;
-          doublejump = false;
-          rb.velocity = jumpDirection * bootForce;
-        }
-
-
-
-        //Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
-        //rb.velocity = movement;
+      doublejump = true;
+      rb.velocity = Vector2.up * jumpForce;
     }
 
-    public bool IsGrounded()
+    public void SecondJump()
+    {
+        doublejump = false;
+        rb.velocity = jumpDirection * bootForce;
+    }
+
+
+    private void IsGrounded()
     {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, checkRadius, groundLayer);
         //Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 0.05f, enemyLayer);
         if ((groundCheck /*!= null*/) /*|| (enemyCheck != null)*/)
         {
-            firstjump = true;
-            doublejump = true; //allowed to double jump
             grounded = true;
-            return true;
         }
-        return false;
+        else{
+          grounded = false;
+        }
     }
 }

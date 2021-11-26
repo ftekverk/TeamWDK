@@ -25,10 +25,10 @@ public class PlayerRotate : MonoBehaviour
       {
         //ask adam or john about why i cant put rotate speed in here
           if (Input.GetKey(rightRotate)){
-              transform.Rotate(new Vector3( 0f, 0f, -1f) , 7f, Space.Self);
+              transform.Rotate(new Vector3( 0f, 0f, -1f) , 500f * Time.deltaTime, Space.Self);
           }
           else if(Input.GetKey(leftRotate)){
-              transform.Rotate(new Vector3( 0f, 0f, -1f) , -7f, Space.Self);
+              transform.Rotate(new Vector3( 0f, 0f, -1f) , -500f * Time.deltaTime, Space.Self);
           }
 
 

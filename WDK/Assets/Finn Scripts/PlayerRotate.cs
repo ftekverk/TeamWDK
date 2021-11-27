@@ -25,7 +25,6 @@ public class PlayerRotate : MonoBehaviour
     {
       if(jumpscript.grounded){
         transform.rotation = upright;
-        //rb2D.freezeRotation = true;
       }
       else //if in the air
       {

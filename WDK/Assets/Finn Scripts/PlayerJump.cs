@@ -14,15 +14,15 @@ public class PlayerJump : MonoBehaviour
     public LayerMask groundLayer;
     //public LayerMask enemyLayer;
     public bool isAlive = true;
-    //public AudioSource JumpSFX;
 
-    //bool firstjump = true;  //true if we havent used our first jump yet
     bool doublejump = false;  //true if able to double jump
     public float checkRadius = 0.1f;
     public bool grounded;
 
+
     //jump towards head
     private Vector2 jumpDirection;
+    private Vector2 firstJumpDirection;
 
     void Start()
     {
@@ -45,13 +45,14 @@ public class PlayerJump : MonoBehaviour
     public void FirstJump()
     {
       doublejump = true;
-      rb.velocity = Vector2.up * jumpForce;
+
+      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     public void SecondJump()
     {
         doublejump = false;
-        rb.velocity = jumpDirection * bootForce;
+        rb.velocity += (jumpDirection * bootForce);
     }
 
 

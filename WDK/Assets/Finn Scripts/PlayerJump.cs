@@ -52,7 +52,7 @@ public class PlayerJump : MonoBehaviour
     public void SecondJump()
     {
         doublejump = false;
-        rb.velocity += (jumpDirection * bootForce);
+        rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
     }
 
 

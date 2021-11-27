@@ -9,6 +9,8 @@ public class PlayerRotate : MonoBehaviour
     public float rotateSpeed = 500f;
     KeyCode rightRotate = KeyCode.E;
     KeyCode leftRotate = KeyCode.Q;
+    KeyCode rightRotate2 = KeyCode.RightArrow;
+    KeyCode leftRotate2 = KeyCode.LeftArrow;
 
     Quaternion upright;
 
@@ -29,10 +31,10 @@ public class PlayerRotate : MonoBehaviour
       else //if in the air
       {
           rb2D.freezeRotation = false;
-          if (Input.GetKey(rightRotate)){
+          if (Input.GetKey(rightRotate) || Input.GetKey(rightRotate2)){
               transform.Rotate(new Vector3( 0f, 0f, -1f) , rotateSpeed * Time.deltaTime, Space.Self);
           }
-          else if(Input.GetKey(leftRotate)){
+          else if(Input.GetKey(leftRotate) || Input.GetKey(leftRotate2)){
               transform.Rotate(new Vector3( 0f, 0f, -1f) , -rotateSpeed * Time.deltaTime, Space.Self);
           }
       }

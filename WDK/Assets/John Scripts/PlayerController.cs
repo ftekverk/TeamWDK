@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
                 transform.Translate(Vector3.down * recoilForce);
                 stepsRecoiled++;
 
-                
+
             }
             else
             {

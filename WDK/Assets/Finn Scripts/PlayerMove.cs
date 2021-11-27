@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    Rigidbody2D rb2D;
+    Rigidbody2D rb;
+    SpriteRenderer spriteRenderer;
     public float runSpeed = 10f;
-    private Vector3 hMove;
+    private float hMove;
+    public PlayerJump jumpscript;
+
+    KeyCode rightMove = KeyCode.RightArrow;
+    KeyCode leftMove = KeyCode.LeftArrow;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb2D = GetComponent<Rigidbody2D>();
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        hMove = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
-        transform.position += hMove * runSpeed * Time.deltaTime;
+
+        if(jumpscript.grounded){
+          if(Input.GetKey(rightMove)){
+              rb.velocity = new Vector2(runSpeed, rb.velocity.y);
+              spriteRenderer.flipX = true;
+          }
+          if(Input.GetKey(leftMove)){
+              rb.velocity = new Vector2(-runSpeed, rb.velocity.y);
+              spriteRenderer.flipX = false;
+          }
+        }
+
+
     }
 }

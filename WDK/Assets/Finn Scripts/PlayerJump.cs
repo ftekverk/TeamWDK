@@ -14,15 +14,16 @@ public class PlayerJump : MonoBehaviour
     public LayerMask groundLayer;
     //public LayerMask enemyLayer;
     public bool isAlive = true;
-    //public AudioSource JumpSFX;
+    public bool doubleJumpCalled;
 
-    bool firstjump = true;  //true if we havent used our first jump yet
-    bool doublejump = false;  //true if able to double jump
+    public bool doublejump;  //true if able to double jump
     public float checkRadius = 0.1f;
     public bool grounded;
 
+
     //jump towards head
     private Vector2 jumpDirection;
+    private Vector2 firstJumpDirection;
 
     void Start()
     {
@@ -32,49 +33,41 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-        grounded = IsGrounded();
+        doubleJumpCalled = false;
+        IsGrounded();
         jumpDirection = head.position - transform.position;
-        if ((Input.GetButtonDown("Jump")) && (grounded || doublejump) && (isAlive == true))
+        if ((Input.GetButtonDown("Jump")) && (isAlive == true))
         {
-            Jump();
-            // animator.SetTrigger("Jump");
-            // JumpSFX.Play();
+            if(grounded) FirstJump();
+            else if(doublejump) SecondJump();
+            grounded = false;
         }
 
-
     }
-
-    public void Jump()
+    public void FirstJump()
     {
-        grounded = false;
-        if(firstjump){
-          rb.velocity = Vector2.up * jumpForce;
-          firstjump = false;
-          doublejump = true;
-        }
-        else{
-          firstjump = true;
-          doublejump = false;
-          rb.velocity = jumpDirection * bootForce;
-        }
-
-
-
-        //Vector2 movement = new Vector2(rb.velocity.x, jumpForce);
-        //rb.velocity = movement;
+      doublejump = true;
+      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
-    public bool IsGrounded()
+    public void SecondJump()
+    {
+        doubleJumpCalled = true;
+        doublejump = false;
+        rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+    }
+
+
+    private void IsGrounded()
     {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, checkRadius, groundLayer);
         //Collider2D enemyCheck = Physics2D.OverlapCircle(feet.position, 0.05f, enemyLayer);
         if ((groundCheck /*!= null*/) /*|| (enemyCheck != null)*/)
         {
-            firstjump = true;
-            doublejump = true; //allowed to double jump
             grounded = true;
-            return true;
         }
-        return false;
+        else{
+          grounded = false;
+        }
     }
 }

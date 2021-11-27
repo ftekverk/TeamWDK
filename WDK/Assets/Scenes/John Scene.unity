@@ -371,7 +371,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587195986}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.85, z: 0}
+  m_LocalPosition: {x: 0, y: 0.993, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2129001921}
@@ -1691,9 +1691,9 @@ MonoBehaviour:
   spawner: {fileID: 587195986}
   bullet: {fileID: 1737725368035534751, guid: 53ace839902a7e949b7e80d69e6e11c2, type: 3}
   jumpSteps: 20
-  recoilSteps: 5
+  recoilSteps: 10
   speed: 350
   jumpSpeed: 10
   checkRadius: 1
   fallSpeed: 45
-  recoilForce: 0.3
+  recoilForce: 0.2

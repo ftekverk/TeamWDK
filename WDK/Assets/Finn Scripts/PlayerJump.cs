@@ -14,8 +14,9 @@ public class PlayerJump : MonoBehaviour
     public LayerMask groundLayer;
     //public LayerMask enemyLayer;
     public bool isAlive = true;
+    public bool doubleJumpCalled;
 
-    bool doublejump = false;  //true if able to double jump
+    public bool doublejump;  //true if able to double jump
     public float checkRadius = 0.1f;
     public bool grounded;
 
@@ -32,6 +33,7 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
+        doubleJumpCalled = false;
         IsGrounded();
         jumpDirection = head.position - transform.position;
         if ((Input.GetButtonDown("Jump")) && (isAlive == true))
@@ -45,12 +47,12 @@ public class PlayerJump : MonoBehaviour
     public void FirstJump()
     {
       doublejump = true;
-
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     public void SecondJump()
     {
+        doubleJumpCalled = true;
         doublejump = false;
         rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
     }

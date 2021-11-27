@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public PlayerStates pStates;
+    public DetectInput input;
+
+    Rigidbody2D rb;
+
+    [SerializeField] float speed;
+
     void Start()
     {
-        
+        pStates = GetComponent<PlayerStates>();
+        input = GetComponent<DetectInput>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-        
+        rb.velocity = new Vector2(input.hInput * speed * Time.deltaTime, rb.velocity.y);
     }
 }

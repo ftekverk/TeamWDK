@@ -1556,7 +1556,11 @@ GameObject:
   - component: {fileID: 2129001920}
   - component: {fileID: 2129001923}
   - component: {fileID: 2129001922}
+  - component: {fileID: 2129001925}
+  - component: {fileID: 2129001926}
+  - component: {fileID: 2129001927}
   - component: {fileID: 2129001924}
+  - component: {fileID: 2129001928}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1680,7 +1684,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 2129001919}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67131132704621948b98a52eefa036d5, type: 3}
+  m_Script: {fileID: 11500000, guid: f5196f6c786d792439fa3b14d9504012, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hInput: 0
+--- !u!114 &2129001925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129001919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 079235a9a68361140a42680124560d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   feetPos: {fileID: 466866649}
@@ -1688,12 +1705,51 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 1024
-  spawner: {fileID: 587195986}
-  bullet: {fileID: 1737725368035534751, guid: 53ace839902a7e949b7e80d69e6e11c2, type: 3}
+--- !u!114 &2129001926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129001919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d4fd8d66fa96a4a88fda636cda6e45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumping: 0
+  recoiling: 0
+  grounded: 0
+  walking: 0
+--- !u!114 &2129001927
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129001919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c800aafd0aa46d4584b32dee294cb66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   jumpSteps: 20
-  recoilSteps: 10
-  speed: 350
+  stepsJumped: 0
   jumpSpeed: 10
-  checkRadius: 1
   fallSpeed: 45
-  recoilForce: 0.2
+  stopJumpThreshold: 7
+--- !u!114 &2129001928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129001919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fe4dc6fc96834f40864ceee308d9f8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pStates: {fileID: 0}
+  input: {fileID: 0}
+  speed: 350

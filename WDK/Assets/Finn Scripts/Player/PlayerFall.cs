@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class PlayerFall : MonoBehaviour
 {
-
     public float fallMultiplier = 2.5f;
     public float lowJumpMultiplier = 2f;
     Rigidbody2D rb;
@@ -17,10 +16,12 @@ public class PlayerFall : MonoBehaviour
 
     void Update()
     {
+        //if we are falling, fall faster
         if (rb.velocity.y < 0)
         {
             rb.velocity += Vector2.up * Physics.gravity.y * (fallMultiplier - 1) * Time.deltaTime;
         }
+        //if we are rising, and let go of space, fall faster? ( I think )
         else if (rb.velocity.y > 0 && !Input.GetButton("Jump"))
         {
             rb.velocity += Vector2.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.deltaTime;

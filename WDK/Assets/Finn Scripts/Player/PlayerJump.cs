@@ -15,15 +15,14 @@ public class PlayerJump : MonoBehaviour
     //public LayerMask enemyLayer;
     public bool isAlive = true;
     public bool doubleJumpCalled;
-
     public bool doublejump;  //true if able to double jump
+
+    //Variables to check if grounded
     public float checkRadius = 0.1f;
     public bool grounded;
 
-
-    //jump towards head
+    //Used to find direction of our jump
     private Vector2 jumpDirection;
-    private Vector2 firstJumpDirection;
 
     void Start()
     {
@@ -31,10 +30,14 @@ public class PlayerJump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+
     void Update()
     {
+
         doubleJumpCalled = false;
         IsGrounded();
+
+        //Find the direction of our second jump by drawing a vector from body to head.
         jumpDirection = head.position - transform.position;
         if ((Input.GetButtonDown("Jump")) && (isAlive == true))
         {
@@ -44,20 +47,24 @@ public class PlayerJump : MonoBehaviour
         }
 
     }
+
+    //If we call firstjump, we can then call secondjump
     public void FirstJump()
     {
       doublejump = true;
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
+    //If we use our secondjump, we can no longer call double jump
     public void SecondJump()
     {
         doubleJumpCalled = true;
         doublejump = false;
+        //our second jump we move towards the head, maintaining some fraction of our original velocity
         rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
     }
 
-
+    //Check if our character is on the ground
     private void IsGrounded()
     {
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, checkRadius, groundLayer);

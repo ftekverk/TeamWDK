@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rb;
@@ -23,7 +25,7 @@ public class PlayerMove : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        //if we're grounded we can move horizontally
         if(jumpscript.grounded){
           if(Input.GetKey(rightMove)){
               rb.velocity = new Vector2(runSpeed, rb.velocity.y);

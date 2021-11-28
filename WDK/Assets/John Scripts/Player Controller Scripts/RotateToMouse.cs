@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class RotateToMouse : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private PlayerStates pStates;
+    private DetectInput input;
+
     void Start()
     {
-        
+        pStates = GetComponent<PlayerStates>();
+        input = GetComponent<DetectInput>();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (!pStates.grounded)
+        {
+            transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(input.mousePosWS.y - transform.position.y, input.mousePosWS.x - transform.position.x) * Mathf.Rad2Deg - 90);
+        }
     }
 }

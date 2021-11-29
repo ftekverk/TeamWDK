@@ -9,8 +9,9 @@ public class Recoil : MonoBehaviour
 
     [SerializeField] Transform pos2;
     Rigidbody2D rb;
-
     Vector2 slope;
+
+    [SerializeField] float recoilForce;
 
     void Start()
     {
@@ -28,7 +29,10 @@ public class Recoil : MonoBehaviour
     {
         if (pStates.recoiling)
         {
-            rb.velocity = new Vector2(slope.x * 10, slope.y * 10);
+            //rb.velocity = new Vector2(slope.x * 100, slope.y * 100);
+            //rb.velocity = new Vector2(0, 0);
+            rb.velocity = slope * recoilForce;
+            pStates.recoiling = false;
         }
     }
 }

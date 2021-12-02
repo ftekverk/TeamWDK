@@ -39,7 +39,8 @@ public class Recoil : MonoBehaviour
 
             temp = slope.x * recoilForce;
 
-            rb.velocity = new Vector2(temp + 10, slope.y * recoilForce);
+            //rb.velocity = new Vector2(slope.x * recoilForce + (.25f * tempVel.x), slope.y * recoilForce + (.25f * tempVel.y));
+            rb.velocity = (slope * recoilForce) + .25f * tempVel;
 
             pStates.recoiling = false;
         }

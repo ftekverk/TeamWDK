@@ -1813,4 +1813,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pos2: {fileID: 226623718}
-  recoilForce: 50
+  slope: {x: 0, y: 0}
+  recoilForce: 25
+  temp: 0

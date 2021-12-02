@@ -569,6 +569,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   isAlive: 1
+  doubleJumpCalled: 0
   doublejump: 0
   checkRadius: 0.2
   grounded: 0
@@ -645,8 +646,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e95f59cb4e47b4b9c18e1151a8e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 6
+  runSpeed: 8
   jumpscript: {fileID: 1625754734}
+  hInput: 0
 --- !u!114 &1625754739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -675,4 +677,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bootPulsePrefab: {fileID: 3872054429313324755, guid: 1f5244d295e2d417c80e9ae1de339bb2, type: 3}
   jumpscript: {fileID: 1625754734}
+  pulseSpeed: 10
   feet: {fileID: 1373639968}

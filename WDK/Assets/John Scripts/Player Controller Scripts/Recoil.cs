@@ -36,7 +36,7 @@ public class Recoil : MonoBehaviour
 
             jump.StopJumpQuick();
 
-            rb.velocity = new Vector2(slope.x * recoilForce, slope.y * recoilForce);
+            rb.velocity = new Vector2(slope.x, slope.y) * recoilForce;
 
             pStates.recoiling = false;
         }

@@ -14,6 +14,7 @@ public class Recoil : MonoBehaviour
     Vector2 tempVel;
 
     [SerializeField] float recoilForce;
+    [SerializeField] float temp;
 
     void Start()
     {
@@ -36,7 +37,9 @@ public class Recoil : MonoBehaviour
 
             jump.StopJumpQuick();
 
-            rb.velocity = new Vector2(slope.x, slope.y) * recoilForce;
+            temp = slope.x * recoilForce;
+
+            rb.velocity = new Vector2(temp + 10, slope.y * recoilForce);
 
             pStates.recoiling = false;
         }

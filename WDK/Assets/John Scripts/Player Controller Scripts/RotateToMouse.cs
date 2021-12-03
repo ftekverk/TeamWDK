@@ -15,7 +15,7 @@ public class RotateToMouse : MonoBehaviour
 
     void Update()
     {
-        if (!pStates.grounded)
+        if (!pStates.grounded && !pStates.recoiling)
         {
             transform.rotation = Quaternion.Euler(0, 0, Mathf.Atan2(input.mousePosWS.y - transform.position.y, input.mousePosWS.x - transform.position.x) * Mathf.Rad2Deg - 90);
         }

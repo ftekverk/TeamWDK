@@ -11,10 +11,12 @@ public class Recoil : MonoBehaviour
     [SerializeField] Transform pos2;
     Rigidbody2D rb;
     [SerializeField] Vector2 slope;
-    Vector2 tempVel;
+    Vector2 tempVel = new Vector2(0,0);
 
     [SerializeField] float recoilForce;
-    [SerializeField] float temp;
+
+    [SerializeField]int recoilSteps;
+    int stepsRecoiled = 0;
 
     void Start()
     {
@@ -27,22 +29,31 @@ public class Recoil : MonoBehaviour
     void Update()
     {
         slope = pos2.position - transform.position;
+
+        if (pStates.recoiling && stepsRecoiled >= recoilSteps)
+        {
+            pStates.recoiling = false;
+            stepsRecoiled = 0;
+
+            tempVel = new Vector2(0, 0);
+            jump.StopJumpQuick();
+        }
     }
 
     void FixedUpdate()
     {
         if (pStates.recoiling)
         {
-            tempVel = rb.velocity;
+            if (tempVel == new Vector2(0, 0))
+            {
+                tempVel = rb.velocity;
+            }
 
             jump.StopJumpQuick();
 
-            temp = slope.x * recoilForce;
-
-            //rb.velocity = new Vector2(slope.x * recoilForce + (.25f * tempVel.x), slope.y * recoilForce + (.25f * tempVel.y));
             rb.velocity = (slope * recoilForce) + .25f * tempVel;
 
-            pStates.recoiling = false;
+            stepsRecoiled++;
         }
     }
 }

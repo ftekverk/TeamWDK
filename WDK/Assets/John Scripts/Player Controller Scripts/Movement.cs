@@ -33,7 +33,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (leftClick == false && !pStates.recoiling)
+        if (!pStates.recoiling)
         {
             rb.velocity = new Vector2(input.hInput * speed * Time.deltaTime, rb.velocity.y);
         }  

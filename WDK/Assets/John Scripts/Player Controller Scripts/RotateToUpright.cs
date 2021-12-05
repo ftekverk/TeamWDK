@@ -11,6 +11,9 @@ public class RotateToUpright : MonoBehaviour
 
     float zAngle = 180;
     float smoothing = 5.0f;
+    float uprightBound = .99999f;
+
+    [SerializeField] float currentZRot;
 
     void Start()
     {
@@ -21,7 +24,9 @@ public class RotateToUpright : MonoBehaviour
 
     void Update()
     {
-        if (transform.rotation == uprightRot)
+        currentZRot = transform.rotation.z;
+
+        if (transform.rotation.z > uprightBound || transform.rotation.z < -uprightBound)
         {
             pStates.upright = true;
         }

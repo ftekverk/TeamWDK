@@ -11,7 +11,7 @@ public class RotateToUpright : MonoBehaviour
 
     float zAngle = 180;
     float smoothing = 5.0f;
-    float uprightBound = .99999f;
+    float uprightBound = .9999999f;
 
     [SerializeField] float currentZRot;
 

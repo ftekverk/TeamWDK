@@ -1593,6 +1593,7 @@ GameObject:
   - component: {fileID: 2129001928}
   - component: {fileID: 2129001929}
   - component: {fileID: 2129001930}
+  - component: {fileID: 2129001931}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1658,7 +1659,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129001919}
-  m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
@@ -1670,7 +1671,7 @@ Transform:
   - {fileID: 226623718}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
 --- !u!50 &2129001922
 Rigidbody2D:
   serializedVersion: 4
@@ -1756,6 +1757,7 @@ MonoBehaviour:
   recoiling: 0
   grounded: 0
   walking: 0
+  upright: 0
 --- !u!114 &2129001927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,3 +1817,15 @@ MonoBehaviour:
   pos2: {fileID: 226623718}
   slope: {x: 0, y: 0}
   recoilForce: 25
+--- !u!114 &2129001931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129001919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b941e29e0548a48912ca1ab21e373e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

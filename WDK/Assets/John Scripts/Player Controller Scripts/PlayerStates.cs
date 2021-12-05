@@ -8,4 +8,5 @@ public class PlayerStates : MonoBehaviour
     public bool recoiling;
     public bool grounded;
     public bool walking;
+    public bool upright;
 }

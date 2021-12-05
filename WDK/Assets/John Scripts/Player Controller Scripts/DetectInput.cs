@@ -63,6 +63,7 @@ public class DetectInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !pStates.recoiling)
         {
             pStates.recoiling = true;
+            jump.StopJumpQuick();
         }
     }
 }

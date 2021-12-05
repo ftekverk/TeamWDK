@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (!pStates.recoiling)
+        if (pStates.grounded)
         {
             rb.velocity = new Vector2(input.hInput * speed * Time.deltaTime, rb.velocity.y);
         }  

@@ -15,9 +15,6 @@ public class Recoil : MonoBehaviour
 
     [SerializeField] float recoilForce;
 
-    [SerializeField]int recoilSteps;
-    int stepsRecoiled = 0;
-
     bool recoiled;
 
     void Start()
@@ -31,40 +28,20 @@ public class Recoil : MonoBehaviour
     void Update()
     {
         slope = pos2.position - transform.position;
-
-        if (pStates.recoiling && stepsRecoiled >= recoilSteps)
+        if (pStates.grounded)
         {
-            pStates.recoiling = false;
             recoiled = false;
-            stepsRecoiled = 0;
-
-            tempVel = new Vector2(0, 0);
-            jump.StopJumpQuick();
         }
     }
 
     void FixedUpdate()
     {
-        if (pStates.recoiling)
+        if (pStates.recoiling && !recoiled)
         {
-            if (tempVel == new Vector2(0, 0))
-            {
-                tempVel = rb.velocity;
-            }
+            recoiled = true;
+            pStates.recoiling = false;
 
-            if (!recoiled)
-            {
-                jump.StopJumpQuick();
-
-                rb.velocity = (slope * recoilForce) + .25f * tempVel;
-
-                recoiled = true;
-            }
-            /*jump.StopJumpQuick();
-
-            rb.velocity = (slope * recoilForce) + .25f * tempVel;
-            */
-            stepsRecoiled++;
+            rb.velocity = new Vector2((slope.x * recoilForce * .6f), (slope.y * recoilForce));
         }
     }
 }

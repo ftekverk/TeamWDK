@@ -38,7 +38,7 @@ public class Jump : MonoBehaviour
 
         if (rb.velocity.y < -(Mathf.Abs(fallSpeed)))
         {
-            //rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -(Mathf.Abs(fallSpeed)), Mathf.Infinity));
+            rb.velocity = new Vector2(rb.velocity.x, Mathf.Clamp(rb.velocity.y, -(Mathf.Abs(fallSpeed)), Mathf.Infinity));
         }
     }
 

@@ -18,6 +18,8 @@ public class Recoil : MonoBehaviour
     [SerializeField]int recoilSteps;
     int stepsRecoiled = 0;
 
+    bool recoiled;
+
     void Start()
     {
         pStates = GetComponent<PlayerStates>();
@@ -33,6 +35,7 @@ public class Recoil : MonoBehaviour
         if (pStates.recoiling && stepsRecoiled >= recoilSteps)
         {
             pStates.recoiling = false;
+            recoiled = false;
             stepsRecoiled = 0;
 
             tempVel = new Vector2(0, 0);
@@ -49,10 +52,18 @@ public class Recoil : MonoBehaviour
                 tempVel = rb.velocity;
             }
 
-            jump.StopJumpQuick();
+            if (!recoiled)
+            {
+                jump.StopJumpQuick();
+
+                rb.velocity = (slope * recoilForce) + .25f * tempVel;
+
+                recoiled = true;
+            }
+            /*jump.StopJumpQuick();
 
             rb.velocity = (slope * recoilForce) + .25f * tempVel;
-
+            */
             stepsRecoiled++;
         }
     }

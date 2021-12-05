@@ -11,8 +11,6 @@ public class Movement : MonoBehaviour
 
     [SerializeField] float speed;
 
-    [SerializeField] bool leftClick;
-
     void Start()
     {
         pStates = GetComponent<PlayerStates>();
@@ -22,13 +20,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            leftClick = true;
-        } else
-        {
-            leftClick = false;
-        }
+
     }
 
     void FixedUpdate()

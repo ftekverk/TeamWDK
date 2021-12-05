@@ -1788,7 +1788,6 @@ MonoBehaviour:
   pStates: {fileID: 0}
   input: {fileID: 0}
   speed: 350
-  leftClick: 0
 --- !u!114 &2129001929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1815,5 +1814,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pos2: {fileID: 226623718}
   slope: {x: 0, y: 0}
-  recoilForce: 25
-  recoilSteps: 15
+  recoilForce: 40
+  recoilSteps: 40

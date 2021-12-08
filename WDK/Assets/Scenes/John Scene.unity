@@ -1594,6 +1594,7 @@ GameObject:
   - component: {fileID: 2129001929}
   - component: {fileID: 2129001930}
   - component: {fileID: 2129001931}
+  - component: {fileID: 2129001932}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1758,6 +1759,7 @@ MonoBehaviour:
   grounded: 0
   walking: 0
   upright: 0
+  shooting: 0
 --- !u!114 &2129001927
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,3 +1831,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6b941e29e0548a48912ca1ab21e373e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentZRot: 0
+--- !u!114 &2129001932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2129001919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef1426629a017b041b046331c559b0f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullet: {fileID: 1737725368035534751, guid: 53ace839902a7e949b7e80d69e6e11c2, type: 3}
+  spawner: {fileID: 587195986}

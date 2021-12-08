@@ -9,4 +9,5 @@ public class PlayerStates : MonoBehaviour
     public bool grounded;
     public bool walking;
     public bool upright;
+    public bool shooting;
 }

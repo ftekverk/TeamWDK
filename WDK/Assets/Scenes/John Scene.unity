@@ -1569,11 +1569,11 @@ MonoBehaviour:
   player: {fileID: 2129001921}
   minValues: {x: -50, y: 4, z: -10}
   maxValues: {x: 50, y: 4, z: -10}
-  minValues2: {x: 0, y: 0, z: 0}
-  maxValues2: {x: 0, y: 0, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  offset2: {x: 0, y: 0, z: 0}
-  shiftValue: 0
+  minValues2: {x: -50, y: 4, z: -10}
+  maxValues2: {x: 50, y: 50, z: -10}
+  offset: {x: 0, y: 4, z: -10}
+  offset2: {x: 0, y: 0, z: -10}
+  shiftValue: 4
 --- !u!1 &2129001919
 GameObject:
   m_ObjectHideFlags: 0

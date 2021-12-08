@@ -36,11 +36,11 @@ public class FollowWithinBounds : MonoBehaviour
 
         if (player.position.y > shiftValue)
         {
-            cameraBounds = getCameraBounds(targetPosition, minValues, maxValues);
+            cameraBounds = getCameraBounds(targetPosition2, minValues2, maxValues2);
         }
         else
         {
-            cameraBounds = getCameraBounds(targetPosition2, minValues2, maxValues2);
+            cameraBounds = getCameraBounds(targetPosition, minValues, maxValues);
         }
 
 

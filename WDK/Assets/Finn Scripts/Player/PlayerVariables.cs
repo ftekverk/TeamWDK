@@ -7,6 +7,10 @@ public class PlayerVariables : MonoBehaviour
 //a script to store and update player variables like
 //Grounded
 //Is alive
+//total health
+//currency
+//experience
+//double jump allowed?
 
 
 

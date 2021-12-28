@@ -562,7 +562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1625754735}
   jumpForce: 10
-  bootForce: 15
+  bootForce: 20
   feet: {fileID: 1373639968}
   head: {fileID: 1367043573}
   groundLayer:

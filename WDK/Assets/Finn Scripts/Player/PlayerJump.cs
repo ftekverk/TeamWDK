@@ -33,13 +33,11 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-
         doubleJumpCalled = false;
         IsGrounded();
-
         //Find the direction of our second jump by drawing a vector from body to head.
         jumpDirection = head.position - transform.position;
-        if ((Input.GetButtonDown("Jump")) && (isAlive == true))
+        if ((Input.GetButtonDown("Jump")) && (isAlive == true)) //jump is w, space, up
         {
             if(grounded) FirstJump();
             else if(doublejump) SecondJump();
@@ -70,6 +68,6 @@ public class PlayerJump : MonoBehaviour
         Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, checkRadius, groundLayer);
         if (groundCheck) grounded = true;
         else             grounded = false;
-        
+
     }
 }

@@ -7,10 +7,7 @@ public class PlayerRotate : MonoBehaviour
     Rigidbody2D rb2D;
     public PlayerJump jumpscript;
     public float rotateSpeed = 500f;
-    KeyCode rightRotate = KeyCode.E;
-    KeyCode leftRotate = KeyCode.Q;
-    KeyCode rightRotate2 = KeyCode.RightArrow;
-    KeyCode leftRotate2 = KeyCode.LeftArrow;
+
 
     Quaternion upright;
 
@@ -31,10 +28,10 @@ public class PlayerRotate : MonoBehaviour
       else //if in the air
       {
           rb2D.freezeRotation = false;
-          if (Input.GetKey(rightRotate) || Input.GetKey(rightRotate2)){
+          if (Input.GetButton("Rotate Right")){  //e or right
               transform.Rotate(new Vector3( 0f, 0f, -1f) , rotateSpeed * Time.deltaTime, Space.Self);
           }
-          else if(Input.GetKey(leftRotate) || Input.GetKey(leftRotate2)){
+          else if(Input.GetButton("Rotate Left")){  //q or left
               transform.Rotate(new Vector3( 0f, 0f, -1f) , -rotateSpeed * Time.deltaTime, Space.Self);
           }
       }

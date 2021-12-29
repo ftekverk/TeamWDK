@@ -618,7 +618,6 @@ MonoBehaviour:
   pulseScript: {fileID: 1625754740}
   jumpScript: {fileID: 1625754734}
   pulseDirection: {x: 0, y: 0}
-  range: 100
 --- !u!114 &1625754742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -634,7 +633,6 @@ MonoBehaviour:
   pulseScript: {fileID: 1625754740}
   jumpScript: {fileID: 1625754734}
   pulseDirection: {x: 0, y: 0}
-  range: 0.1
 --- !u!120 &1625754743
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -686,7 +684,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.031454086
         inSlope: 0
         outSlope: 0
         tangentMode: 0

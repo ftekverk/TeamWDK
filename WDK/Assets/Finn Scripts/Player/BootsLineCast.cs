@@ -5,8 +5,6 @@ using UnityEngine;
 public class BootsLineCast : MonoBehaviour
 {
     private LineRenderer lr;
-    private Transform[] points;
-
 
     public BootPulse pulseScript;
     public PlayerJump jumpScript;
@@ -14,7 +12,7 @@ public class BootsLineCast : MonoBehaviour
 
     //public LayerMask layersToIgnore;   --WAS HAVING ISSUES WITH THIS BREAKING EVERYTHING!!!
 
-    public float range = 10f;
+    private float range = 10f;
     void Start()
     {
         lr = GetComponent<LineRenderer>();

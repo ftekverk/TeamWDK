@@ -12,12 +12,13 @@ public class BootsLineCast : MonoBehaviour
     public PlayerJump jumpScript;
     public Vector2 pulseDirection;
 
-    public LayerMask layersToIgnore;
+    //public LayerMask layersToIgnore;   --WAS HAVING ISSUES WITH THIS BREAKING EVERYTHING!!!
 
-    public float range = 100f;
+    public float range = 10f;
     void Start()
     {
         lr = GetComponent<LineRenderer>();
+        lr.positionCount = 2;
     }
 
     // Update is called once per frame
@@ -27,17 +28,17 @@ public class BootsLineCast : MonoBehaviour
         if (!jumpScript.grounded) //if not grounded, draw a line to the next collider
         {
             pulseDirection = pulseScript.pulseDirection;
-            
-             //RaycastHit2D hit = Physics2D.Raycast(pulseScript.pulseSpawnLocation, pulseDirection * 10, range, layersToIgnore);
-            if (Physics2D.Raycast(pulseScript.pulseSpawnLocation, pulseDirection, range, layersToIgnore))
+            RaycastHit2D hit = Physics2D.Raycast(pulseScript.pulseSpawnLocation, pulseDirection, range);  //cant do "out" with Physics2D
+            if (Physics2D.Raycast(pulseScript.pulseSpawnLocation, pulseDirection, range))
             {
-                Debug.DrawRay(pulseScript.pulseSpawnLocation, pulseDirection * 10);
-                //this.transform.position = pulseScript.pulseSpawnLocation;
-                Debug.Log("Here1");
-              //  lr.SetPosition(1, pulseScript.pulseSpawnLocation);
-               // lr.SetPosition(2, hit.point);
-                Debug.Log("Here2");
-
+                lr.enabled = true;
+                //Debug.DrawRay(pulseScript.pulseSpawnLocation, pulseDirection);
+                lr.SetPosition(0, pulseScript.pulseSpawnLocation);
+                lr.SetPosition(1, hit.point);
+            }
+            else
+            {
+                lr.enabled = false;
             }
     
         }

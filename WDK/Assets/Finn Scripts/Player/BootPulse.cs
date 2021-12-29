@@ -14,8 +14,8 @@ public class BootPulse : MonoBehaviour
 
     //variables to set location of boot spawn
     public Transform feet;
-    private Vector2 pulseDirection;
-    private Vector2 pulseSpawnOffset;
+    public Vector2 pulseDirection;
+    public Vector2 pulseSpawnLocation;
     private Vector2 feet2Dposition;
 
 
@@ -29,11 +29,11 @@ public class BootPulse : MonoBehaviour
           //store position of feet as a 2D vector
           feet2Dposition = new Vector2(feet.position.x, feet.position.y);
 
-          //the spot to spawn our pulse is at our feet plus a fraction of our direction vector
-          pulseSpawnOffset = feet2Dposition + (0.5f * pulseDirection);
+            //the spot to spawn our pulse is at our feet plus a fraction of our direction vector
+          pulseSpawnLocation = feet2Dposition + (0.5f * pulseDirection);
 
 
-          pulse = Instantiate(bootPulsePrefab, pulseSpawnOffset, transform.rotation);
+          pulse = Instantiate(bootPulsePrefab, pulseSpawnLocation, transform.rotation);
           pulse.GetComponent<Rigidbody2D>().velocity = pulseDirection * pulseSpeed;
         }
 

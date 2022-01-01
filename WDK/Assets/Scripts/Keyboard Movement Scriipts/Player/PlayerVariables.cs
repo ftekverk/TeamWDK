@@ -12,6 +12,7 @@ public class PlayerVariables : MonoBehaviour
 //experience
 //double jump allowed?
 
+    public float runSpeed = 8f;
 
 
     // Start is called before the first frame update

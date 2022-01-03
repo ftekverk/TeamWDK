@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 65664220}
   - component: {fileID: 65664218}
   - component: {fileID: 65664217}
+  - component: {fileID: 65664219}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -262,6 +263,22 @@ MonoBehaviour:
   pulseScript: {fileID: 65664220}
   jumpScript: {fileID: 65664226}
   pulseDirection: {x: 0, y: 0}
+--- !u!114 &65664219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65664216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb4b3034913744238518546540d4824, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  runSpeed: 8
+  playerHealth: 3
+  playerAlive: 1
+  playerCanTakeDamage: 0
 --- !u!114 &65664220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,7 +1135,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -370, y: 265.6}
+  m_AnchoredPosition: {x: -400, y: 225}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &744366336
@@ -1364,7 +1381,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -410, y: 265.6}
+  m_AnchoredPosition: {x: -450, y: 225}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &770527196
@@ -1439,7 +1456,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -450, y: 265.6}
+  m_AnchoredPosition: {x: -500, y: 225}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &818360871
@@ -2091,6 +2108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1242537510}
   - component: {fileID: 1242537511}
+  - component: {fileID: 1242537512}
   m_Layer: 0
   m_Name: DamagingCollider
   m_TagString: Untagged
@@ -2138,6 +2156,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.49206305, y: 2.4222229}
   m_EdgeRadius: 0
+--- !u!114 &1242537512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242537509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c22bda59d43aec45b210d8b55b57a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerVariablesScript: {fileID: 65664219}
 --- !u!1 &1257362495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2492,6 +2523,7 @@ GameObject:
   - component: {fileID: 1504523122}
   - component: {fileID: 1504523121}
   - component: {fileID: 1504523120}
+  - component: {fileID: 1504523124}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -2582,6 +2614,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1504523124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504523119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8d526419f7965428bd7d6542f9ce00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerStatsScript: {fileID: 65664219}
 --- !u!1 &1581802557
 GameObject:
   m_ObjectHideFlags: 0

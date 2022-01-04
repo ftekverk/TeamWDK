@@ -519,6 +519,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 161559426}
+  - component: {fileID: 161559427}
+  - component: {fileID: 161559428}
   m_Layer: 0
   m_Name: Robot Boss
   m_TagString: Untagged
@@ -542,6 +544,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &161559427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161559425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22188e2e1ae64225807615d286dec6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rightArm: {fileID: 207642781}
+  leftArm: {fileID: 2139337835}
+--- !u!114 &161559428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 161559425}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 382fb5e6efeede54b86d6a333535817a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotHealth: 0
+  robotState: 0
+  robotCanTakeDamage: 0
 --- !u!1 &168032438
 GameObject:
   m_ObjectHideFlags: 0
@@ -838,6 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303138990}
   - component: {fileID: 303138991}
+  - component: {fileID: 303138992}
   m_Layer: 0
   m_Name: HitThisCollider
   m_TagString: Untagged
@@ -875,6 +907,19 @@ CircleCollider2D:
   m_Offset: {x: 0.14278817, y: 0.15764903}
   serializedVersion: 2
   m_Radius: 0.41327322
+--- !u!114 &303138992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 303138989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fc15541a2d7e249a6a0fdb148ff696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotStats: {fileID: 161559428}
 --- !u!1001 &392220349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2216,6 +2261,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1306628332}
   - component: {fileID: 1306628333}
+  - component: {fileID: 1306628334}
   m_Layer: 0
   m_Name: DamagingCollider (1)
   m_TagString: Untagged
@@ -2263,6 +2309,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.47275257, y: 2.518777}
   m_EdgeRadius: 0
+--- !u!114 &1306628334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1306628331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c22bda59d43aec45b210d8b55b57a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerVariablesScript: {fileID: 65664219}
 --- !u!1 &1318919195
 GameObject:
   m_ObjectHideFlags: 0
@@ -2474,6 +2533,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1494715698}
   - component: {fileID: 1494715699}
+  - component: {fileID: 1494715700}
   m_Layer: 0
   m_Name: HitThisCollider (1)
   m_TagString: Untagged
@@ -2511,6 +2571,19 @@ CircleCollider2D:
   m_Offset: {x: 0.14278817, y: 0.15764903}
   serializedVersion: 2
   m_Radius: 0.41327322
+--- !u!114 &1494715700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494715697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2fc15541a2d7e249a6a0fdb148ff696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  robotStats: {fileID: 161559428}
 --- !u!1 &1504523119
 GameObject:
   m_ObjectHideFlags: 0

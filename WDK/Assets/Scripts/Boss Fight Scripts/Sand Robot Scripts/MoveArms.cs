@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MoveArms : MonoBehaviour
 {
+    public GameObject rightArm;
+    public GameObject leftArm;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +16,10 @@ public class MoveArms : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void moveArmsDown()
+    {
+
     }
 }

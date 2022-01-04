@@ -36,7 +36,10 @@ public class PlayerJump : MonoBehaviour
         doubleJumpCalled = false;
         IsGrounded();
         //Find the direction of our second jump by drawing a vector from body to head.
-        jumpDirection = head.position - transform.position;
+        jumpDirection = (head.position - transform.position);
+        jumpDirection.Normalize();
+        jumpDirection = jumpDirection / 2f;
+
         if ((Input.GetButtonDown("Jump")) && (isAlive == true)) //jump is w, space, up
         {
             if(grounded) FirstJump();

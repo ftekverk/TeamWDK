@@ -213,7 +213,7 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.8235295, g: 0.91372555, b: 0.9490197, a: 1}
       key1: {r: 1, g: 1, b: 1, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
@@ -230,7 +230,7 @@ LineRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
+      atime1: 13878
       atime2: 0
       atime3: 0
       atime4: 0
@@ -551,20 +551,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161559425}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22188e2e1ae64225807615d286dec6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rightArm: {fileID: 207642781}
   leftArm: {fileID: 2139337835}
-  rightArmRb: {fileID: 0}
-  leftArmRb: {fileID: 0}
+  rightArmRb: {fileID: 207642784}
+  leftArmRb: {fileID: 2139337838}
   forceVector: {x: 0, y: 0}
   horizontalArmMoveSpeed: 3
   verticalArmMoveSpeed: 3
   maxVerticalSpeed: 3
   maxHorizontalSpeed: 3
+  destination: {x: 100, y: 0}
 --- !u!114 &161559428
 MonoBehaviour:
   m_ObjectHideFlags: 0

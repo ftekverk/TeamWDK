@@ -15,6 +15,8 @@ public class MoveArms : MonoBehaviour
     public float maxVerticalSpeed = 3f;
     public float maxHorizontalSpeed = 3f;
     // Start is called before the first frame update
+
+    public Vector2 destination;
     void Start()
     {
         rightArmRb = rightArm.GetComponent<Rigidbody2D>();
@@ -25,6 +27,8 @@ public class MoveArms : MonoBehaviour
     void FixedUpdate()
     {
         moveArmsDown();
+
+        leftArm.transform.position = Vector2.Lerp(leftArm.transform.position, destination, Time.deltaTime);
     }
 
     public void moveArmsDown()

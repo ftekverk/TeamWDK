@@ -5,6 +5,7 @@ using UnityEngine;
 public class ContactDamage : MonoBehaviour
 {
     public PlayerVariables playerVariablesScript;
+    public EnemyVariables enemyStats;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +23,7 @@ public class ContactDamage : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            playerVariablesScript.damagePlayer();
+            if(enemyStats.enemyCanDoDamage) playerVariablesScript.damagePlayer();
         }
     }
 }

@@ -35,6 +35,10 @@ public class EnemyVariables : MonoBehaviour
         {
             enemyHealth--;
         }
+        if (enemyHealth <= 0)
+        {
+            enemyCanDoDamage = false;
+        }
         enemyCanTakeDamage = false;
         yield return new WaitForSeconds(2f);
         enemyCanTakeDamage = true;

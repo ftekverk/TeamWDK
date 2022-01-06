@@ -10,10 +10,13 @@ public class SandRobotVariables : MonoBehaviour
     public bool robotCanTakeDamage;
     public bool robotCanDoDamage;
 
+    public GameObject rightArm;
+    public GameObject leftArm;
+
     // Start is called before the first frame update
     void Start()
     {
-        robotHealth = 3f;
+        robotHealth = 6f;
         robotState = 1f;
         robotCanTakeDamage = true;
         robotCanDoDamage = true;

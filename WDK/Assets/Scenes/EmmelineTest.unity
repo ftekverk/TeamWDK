@@ -1292,6 +1292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 925367990}
   - component: {fileID: 925367989}
+  - component: {fileID: 925367991}
   m_Layer: 0
   m_Name: temporaryenemy
   m_TagString: Untagged
@@ -1336,8 +1337,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 188422631
+  m_SortingLayer: 4
   m_SortingOrder: 50
   m_Sprite: {fileID: 700399493698517172, guid: fd911c21fb7b51644b8a42560dde2cc6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1357,13 +1358,32 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 925367988}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.63, y: 2.51, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.015225556, w: 0.9998841}
+  m_LocalPosition: {x: 7.27, y: 2.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 30
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -1.745}
+--- !u!95 &925367991
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925367988}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ce7762033d0f8ad4985f04abc0cb36b3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &928325192
 GameObject:
   m_ObjectHideFlags: 0
@@ -2700,8 +2720,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625754731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.46, z: -1.5119}
-  m_LocalScale: {x: 0.40238, y: 0.40238, z: 4.0238}
+  m_LocalPosition: {x: 0, y: 1.97, z: -1.2682}
+  m_LocalScale: {x: 0.32722747, y: 0.32722747, z: 3.2722747}
   m_Children:
   - {fileID: 1373639968}
   - {fileID: 1367043573}
@@ -2721,18 +2741,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d8529e4396a49a8aeab57ee8311599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   rb: {fileID: 1625754735}
   jumpForce: 10
   bootForce: 20
-  feet: {fileID: 1373639968}
   head: {fileID: 1367043573}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   isAlive: 1
   doubleJumpCalled: 0
   doublejump: 0
-  checkRadius: 0.2
   grounded: 0
 --- !u!50 &1625754735
 Rigidbody2D:

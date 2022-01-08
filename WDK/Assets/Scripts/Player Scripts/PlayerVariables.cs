@@ -27,13 +27,14 @@ public class PlayerVariables : MonoBehaviour
     public LayerMask groundLayer;
 
     //Upgrades
-    public bool tripleJumpUnlocked = false;
+    public int totalJumps;
     public bool invincibleJumpUnlocked = false;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        totalJumps = 3;
         playerAlive = true;
         playerCanTakeDamage = true;
     }

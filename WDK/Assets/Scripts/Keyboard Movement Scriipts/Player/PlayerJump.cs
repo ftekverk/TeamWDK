@@ -12,10 +12,10 @@ public class PlayerJump : MonoBehaviour
     public float bootForce = 5000f;
     public Transform head;
     public bool isAlive = true;
-    public bool doubleJumpCalled;
-    public bool doublejump;  //true if able to double jump
+    public bool additionalJumpCalled;
+    public bool additionalJump;  //true if able to double jump
 
-
+    public int pulseJumpsUsed = 0;
 
     //Variables to check if grounded
     //public float checkRadius = 0.1f;
@@ -35,8 +35,7 @@ public class PlayerJump : MonoBehaviour
 
     void Update()
     {
-        doubleJumpCalled = false;
-        //IsGrounded();
+        additionalJumpCalled = false;
         grounded = playerStats.grounded;
         //Find the direction of our second jump by drawing a vector from body to head.
         jumpDirection = (head.position - transform.position);
@@ -46,7 +45,7 @@ public class PlayerJump : MonoBehaviour
         if ((Input.GetButtonDown("Jump")) && (isAlive == true)) //jump is w, space, up
         {
             if(grounded) FirstJump();
-            else if(doublejump) AdditionalJump();
+            else AdditionalJump();
             grounded = false;
         }
 
@@ -55,17 +54,25 @@ public class PlayerJump : MonoBehaviour
     //If we call firstjump, we can then call secondjump
     public void FirstJump()
     {
-      doublejump = true;
+      additionalJump = true;
+      pulseJumpsUsed = 0;
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     //If we use our secondjump, we can no longer call double jump
     public void AdditionalJump()
     {
-        doubleJumpCalled = true;
-        doublejump = false;
-        //our second jump we move towards the head, maintaining some fraction of our original velocity
-        rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+        if(additionalJump){ //if we have another jump
+          additionalJumpCalled = true;
+          //count how many pulse jumps we've used
+          pulseJumpsUsed++;
+          if(pulseJumpsUsed >= playerStats.totalJumps){
+              additionalJump = false; //no more jumps allowed
+          }
+          //our second jump we move towards the head, maintaining some fraction of our original velocity
+          rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+        }
+
     }
 
     //Check if our character is on the ground

@@ -17,6 +17,20 @@ public class PlayerVariables : MonoBehaviour
     public bool playerAlive;
     public bool playerCanTakeDamage;
 
+    //locations
+    public Transform head;
+    public Transform feet;
+
+    //jumping and grounded variables
+    public bool grounded;
+    public float checkRadius = 0.2f;
+    public LayerMask groundLayer;
+
+    //Upgrades
+    public bool tripleJumpUnlocked = false;
+    public bool invincibleJumpUnlocked = false;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +42,7 @@ public class PlayerVariables : MonoBehaviour
     void Update()
     {
         if (playerHealth <= 0f) playerAlive = false;
+        IsGrounded();
     }
 
     public void damagePlayer()
@@ -45,4 +60,12 @@ public class PlayerVariables : MonoBehaviour
         yield return new WaitForSeconds(2f);
         playerCanTakeDamage = true;
     }
+
+    private void IsGrounded()
+    {
+        Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, checkRadius, groundLayer);
+        if (groundCheck) grounded = true;
+        else             grounded = false;
+    }
+
 }

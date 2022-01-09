@@ -1152,6 +1152,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpscript: {fileID: 1478339020}
   rotateSpeed: 450
+  rotateSpeedMouse: 7
+  mouseForRotation: 0
 --- !u!50 &1478339019
 Rigidbody2D:
   serializedVersion: 4
@@ -1185,19 +1187,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d8529e4396a49a8aeab57ee8311599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   rb: {fileID: 1478339019}
   jumpForce: 10
   bootForce: 10
-  feet: {fileID: 1731520273}
   head: {fileID: 1362984155}
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 1024
   isAlive: 1
-  doubleJumpCalled: 0
-  doublejump: 0
-  checkRadius: 0.2
+  additionalJumpCalled: 0
+  additionalJump: 0
+  pulseJumpsUsed: 0
   grounded: 0
+  spriteRenderer: {fileID: 0}
 --- !u!4 &1478339022
 Transform:
   m_ObjectHideFlags: 0

@@ -375,6 +375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpscript: {fileID: 65664226}
   rotateSpeed: 450
+  rotateSpeedMouse: 7
+  mouseForRotation: 0
 --- !u!50 &65664225
 Rigidbody2D:
   serializedVersion: 4
@@ -3038,8 +3040,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 65664228}
-  minValues: {x: -3.5, y: 3.5, z: -10}
-  maxValues: {x: 8.5, y: 3.5, z: -10}
+  minValues1: {x: 0, y: 0, z: 0}
+  maxValues1: {x: 0, y: 0, z: 0}
   minValues2: {x: -3.5, y: 3.5, z: -10}
   maxValues2: {x: 8.5, y: 50, z: -10}
   offset: {x: 0, y: 3.5, z: -10}

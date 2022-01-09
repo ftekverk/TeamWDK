@@ -2752,6 +2752,7 @@ MonoBehaviour:
   additionalJump: 0
   pulseJumpsUsed: 0
   grounded: 0
+  spriteRenderer: {fileID: 0}
 --- !u!50 &1625754735
 Rigidbody2D:
   serializedVersion: 4
@@ -2813,6 +2814,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpscript: {fileID: 1625754734}
   rotateSpeed: 450
+  rotateSpeedMouse: 7
+  mouseForRotation: 1
 --- !u!114 &1625754738
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2149,8 +2149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1067680291}
-  minValues: {x: -3.5, y: 3.5, z: -10}
-  maxValues: {x: 8.5, y: 3.5, z: -10}
+  minValues1: {x: -3.5, y: 3.5, z: -10}
+  maxValues1: {x: 8.5, y: 3.5, z: -10}
   minValues2: {x: -3.5, y: 3.5, z: -10}
   maxValues2: {x: 8.5, y: 50, z: -10}
   offset: {x: 0, y: 3.5, z: -10}

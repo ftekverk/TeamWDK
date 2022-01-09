@@ -358,9 +358,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e95f59cb4e47b4b9c18e1151a8e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 8
-  jumpscript: {fileID: 65664226}
-  hInput: 0
 --- !u!114 &65664224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -373,7 +370,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050e238cc68ec477a9a2af9962e03d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpscript: {fileID: 65664226}
   rotateSpeed: 450
   rotateSpeedMouse: 7
   mouseForRotation: 1
@@ -410,7 +406,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d8529e4396a49a8aeab57ee8311599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 65664219}
   rb: {fileID: 65664225}
   jumpForce: 10
   bootForce: 20
@@ -1689,6 +1684,49 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!1 &821611904
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 821611906}
+  - component: {fileID: 821611905}
+  m_Layer: 0
+  m_Name: GlobalControl
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &821611905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821611904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 208078407c239424a946bfd93a029849, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &821611906
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 821611904}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1341727, y: 4.492849, z: -6.5040855}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842413183
 GameObject:
   m_ObjectHideFlags: 0
@@ -3042,8 +3080,8 @@ MonoBehaviour:
   player: {fileID: 65664228}
   minValues1: {x: -4.14, y: 3.5, z: -10}
   maxValues1: {x: 4.28, y: 3.5, z: -10}
-  minValues2: {x: -3.5, y: 3.5, z: -10}
-  maxValues2: {x: 8.5, y: 50, z: -10}
+  minValues2: {x: -4.14, y: 3.5, z: -10}
+  maxValues2: {x: 4.28, y: 50, z: -10}
   offset: {x: 0, y: 3.5, z: -10}
   offset2: {x: 0, y: 0, z: -10}
   shiftValue: 3.5

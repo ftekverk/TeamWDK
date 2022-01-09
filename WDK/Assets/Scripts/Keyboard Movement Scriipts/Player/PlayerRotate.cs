@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerRotate : MonoBehaviour
 {
     Rigidbody2D rb2D;
-    public PlayerJump jumpscript;
+    private PlayerJump jumpscript;
     public float rotateSpeed = 500f;
     public float rotateSpeedMouse;
     float angle;
@@ -24,6 +24,7 @@ public class PlayerRotate : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         upright = transform.rotation;
+        jumpscript = GetComponent<PlayerJump>();
     }
 
     // Update is called once per frame

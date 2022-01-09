@@ -8,20 +8,23 @@ public class PlayerMove : MonoBehaviour
 {
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
-    public float runSpeed = 8f;
+
     private float hMove;
-    public PlayerJump jumpscript;
 
-    //KeyCode rightMove = KeyCode.RightArrow;
-    //KeyCode leftMove = KeyCode.LeftArrow;
 
-    public float hInput;
+     private PlayerVariables playerScripts;
+    private PlayerJump jumpscript;
+    private float hInput;
+    private float runSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerScripts = GetComponent<PlayerVariables>();
+        jumpscript = GetComponent<PlayerJump>();
+        runSpeed = playerScripts.runSpeed;
     }
 
     // Update is called once per frame

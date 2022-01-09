@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerJump : MonoBehaviour
 {
-    public PlayerVariables playerStats;
+    private PlayerVariables playerStats;
 
     //public Animator animator;
     public Rigidbody2D rb;
@@ -32,6 +32,7 @@ public class PlayerJump : MonoBehaviour
         //animator = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerStats = GetComponent<PlayerVariables>();
     }
 
 

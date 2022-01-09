@@ -23,7 +23,7 @@ public class PlayerVariables : MonoBehaviour
 
     //jumping and grounded variables
     public bool grounded;
-    public float checkRadius = 0.2f;
+    public float checkRadius = 0.35f;
     public LayerMask groundLayer;
 
     //Upgrades
@@ -37,6 +37,7 @@ public class PlayerVariables : MonoBehaviour
         totalJumps = 3;
         playerAlive = true;
         playerCanTakeDamage = true;
+        checkRadius = 0.35f;
     }
 
     // Update is called once per frame

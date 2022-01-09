@@ -286,7 +286,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 1024
-  tripleJumpUnlocked: 0
+  totalJumps: 0
   invincibleJumpUnlocked: 0
 --- !u!114 &65664220
 MonoBehaviour:
@@ -414,9 +414,11 @@ MonoBehaviour:
   bootForce: 20
   head: {fileID: 140424436}
   isAlive: 1
-  doubleJumpCalled: 0
-  doublejump: 0
+  additionalJumpCalled: 0
+  additionalJump: 0
+  pulseJumpsUsed: 0
   grounded: 0
+  spriteRenderer: {fileID: 65664227}
 --- !u!212 &65664227
 SpriteRenderer:
   m_ObjectHideFlags: 0

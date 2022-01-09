@@ -47,6 +47,7 @@ public class PlayerVariables : MonoBehaviour
         IsGrounded();
     }
 
+
     public void damagePlayer()
     {
         if (playerCanTakeDamage) StartCoroutine(damageDelay());

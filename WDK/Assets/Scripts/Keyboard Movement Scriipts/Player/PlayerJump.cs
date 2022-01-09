@@ -18,18 +18,20 @@ public class PlayerJump : MonoBehaviour
     public int pulseJumpsUsed = 0;
 
     //Variables to check if grounded
-    //public float checkRadius = 0.1f;
     public bool grounded;
 
     //Used to find direction of our jump
     private Vector2 jumpDirection;
 
     //check if invincible jump is unlocked
+    public SpriteRenderer spriteRenderer;
+
 
     void Start()
     {
         //animator = gameObject.GetComponentInChildren<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -44,7 +46,7 @@ public class PlayerJump : MonoBehaviour
 
         if ((Input.GetButtonDown("Jump")) && (isAlive == true)) //jump is w, space, up
         {
-            if(grounded) FirstJump();
+            if(playerStats.grounded) FirstJump();
             else AdditionalJump();
             grounded = false;
         }
@@ -69,18 +71,27 @@ public class PlayerJump : MonoBehaviour
           if(pulseJumpsUsed >= playerStats.totalJumps){
               additionalJump = false; //no more jumps allowed
           }
+
+          //if invincible jump
+          if(playerStats.invincibleJumpUnlocked){
+              StartCoroutine(immunityDelay());
+          }
           //our second jump we move towards the head, maintaining some fraction of our original velocity
           rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+
         }
 
     }
 
-    //Check if our character is on the ground
-    // private void IsGrounded()
-    // {
-    //     Collider2D groundCheck = Physics2D.OverlapCircle(feet.position, checkRadius, groundLayer);
-    //     if (groundCheck) grounded = true;
-    //     else             grounded = false;
-    //
-    // }
+
+
+    IEnumerator immunityDelay()
+    {
+        playerStats.playerCanTakeDamage = false;
+        spriteRenderer.enabled = false;
+        yield return new WaitForSeconds(0.25f);
+        playerStats.playerCanTakeDamage = true;
+        spriteRenderer.enabled = true;
+    }
+
 }

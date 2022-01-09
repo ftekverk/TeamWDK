@@ -9,7 +9,7 @@ public class BootPulse : MonoBehaviour
     private GameObject pulse;
 
     public PlayerJump jumpscript;
-    private bool doubleJumpCalled;
+    private bool additionalJumpCalled;
     public float pulseSpeed = 10f;
 
     //variables to set location of boot spawn
@@ -30,7 +30,7 @@ public class BootPulse : MonoBehaviour
         //the spot to spawn our pulse is at our feet plus a fraction of our direction vector
         pulseSpawnLocation = feet2Dposition + (0.5f * pulseDirection);
         //if we are doublejumping and not grounded
-        if (jumpscript.doubleJumpCalled && !jumpscript.grounded){
+        if (jumpscript.additionalJumpCalled && !jumpscript.grounded){
           pulse = Instantiate(bootPulsePrefab, pulseSpawnLocation, transform.rotation);
           pulse.GetComponent<Rigidbody2D>().velocity = pulseDirection * pulseSpeed;
         }

@@ -2815,7 +2815,7 @@ MonoBehaviour:
   jumpscript: {fileID: 1625754734}
   rotateSpeed: 450
   rotateSpeedMouse: 7
-  mouseForRotation: 1
+  mouseForRotation: 0
 --- !u!114 &1625754738
 MonoBehaviour:
   m_ObjectHideFlags: 0

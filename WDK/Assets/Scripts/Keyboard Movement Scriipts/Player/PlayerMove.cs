@@ -29,7 +29,7 @@ public class PlayerMove : MonoBehaviour
     {
         hInput = Input.GetAxis("Horizontal");
         //if we're grounded we can move horizontally
-        if (jumpscript.grounded){
+        if (jumpscript.grounded || jumpscript.pulseJumpsUsed == 0){
             rb.velocity = new Vector2(hInput * runSpeed, rb.velocity.y);
             if (hInput > 0) spriteRenderer.flipX = true;
             else if (hInput < 0) spriteRenderer.flipX = false;

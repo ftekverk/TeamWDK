@@ -8,9 +8,9 @@ public class BootPulse : MonoBehaviour
     public GameObject bootPulsePrefab;
     private GameObject pulse;
 
-    public PlayerJump jumpscript;
+    private PlayerJump jumpscript;
     private bool additionalJumpCalled;
-    public float pulseSpeed = 10f;
+    private float pulseSpeed = 10f;
 
     //variables to set location of boot spawn
     public Transform feet;
@@ -18,6 +18,9 @@ public class BootPulse : MonoBehaviour
     public Vector2 pulseSpawnLocation;
     private Vector2 feet2Dposition;
 
+    void Start(){
+      jumpscript =  GetComponent<PlayerJump>();
+    }
 
     void Update()
     {

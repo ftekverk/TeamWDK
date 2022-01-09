@@ -8,10 +8,8 @@ public class PlayerJump : MonoBehaviour
 
     //public Animator animator;
     public Rigidbody2D rb;
-    public float jumpForce = 20f;
-    public float bootForce = 5000f;
+
     public Transform head;
-    public bool isAlive = true;
     public bool additionalJumpCalled;
     public bool additionalJump;  //true if able to double jump
 
@@ -20,11 +18,13 @@ public class PlayerJump : MonoBehaviour
     //Variables to check if grounded
     public bool grounded;
 
+    private float jumpForce;
+    private float bootForce;
     //Used to find direction of our jump
     private Vector2 jumpDirection;
 
     //check if invincible jump is unlocked
-    public SpriteRenderer spriteRenderer;
+    private SpriteRenderer spriteRenderer;
 
 
     void Start()
@@ -33,6 +33,9 @@ public class PlayerJump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerStats = GetComponent<PlayerVariables>();
+
+        jumpForce = playerStats.jumpForce;
+        bootForce = playerStats.bootForce;
     }
 
 
@@ -45,7 +48,7 @@ public class PlayerJump : MonoBehaviour
         jumpDirection.Normalize();
         jumpDirection = jumpDirection / 2f;
 
-        if ((Input.GetButtonDown("Jump")) && (isAlive == true)) //jump is w, space, up
+        if ((Input.GetButtonDown("Jump"))) //jump is w, space, up
         {
             if(playerStats.grounded) FirstJump();
             else AdditionalJump();

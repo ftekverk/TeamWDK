@@ -260,8 +260,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615bbccab5a99343884e1cbb425b622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulseScript: {fileID: 65664220}
-  jumpScript: {fileID: 65664226}
   pulseDirection: {x: 0, y: 0}
 --- !u!114 &65664219
 MonoBehaviour:
@@ -276,6 +274,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runSpeed: 8
+  jumpForce: 12
+  bootForce: 24
   playerHealth: 3
   playerAlive: 1
   playerCanTakeDamage: 0
@@ -301,8 +301,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bootPulsePrefab: {fileID: 3872054429313324755, guid: 1f5244d295e2d417c80e9ae1de339bb2, type: 3}
-  jumpscript: {fileID: 65664226}
-  pulseSpeed: 15
   feet: {fileID: 2136728522}
   pulseDirection: {x: 0, y: 0}
   pulseSpawnLocation: {x: 0, y: 0}
@@ -407,15 +405,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 65664225}
-  jumpForce: 10
-  bootForce: 20
   head: {fileID: 140424436}
-  isAlive: 1
   additionalJumpCalled: 0
   additionalJump: 0
   pulseJumpsUsed: 0
   grounded: 0
-  spriteRenderer: {fileID: 65664227}
 --- !u!212 &65664227
 SpriteRenderer:
   m_ObjectHideFlags: 0

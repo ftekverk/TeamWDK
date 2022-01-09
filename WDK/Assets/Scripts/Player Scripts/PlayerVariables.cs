@@ -13,6 +13,9 @@ public class PlayerVariables : MonoBehaviour
 //double jump allowed?
 
     public float runSpeed = 8f;
+    public float jumpForce = 1f;
+    public float bootForce = 2f;
+
     public float playerHealth = 3f;
     public bool playerAlive;
     public bool playerCanTakeDamage;

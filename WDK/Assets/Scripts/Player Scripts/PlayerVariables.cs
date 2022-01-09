@@ -4,20 +4,20 @@ using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour
 {
-//a script to store and update player variables like
-//Grounded
-//Is alive
-//total health
+
 //currency
 //experience
-//double jump allowed?
 
+//Things to Transfer to new scene -- anything else?
+    public bool invincibleJumpUnlocked = false;
+    public float playerHealth = 3f;
+    public bool playerAlive;
+   
+   
     public float runSpeed = 8f;
     public float jumpForce = 1f;
     public float bootForce = 2f;
 
-    public float playerHealth = 3f;
-    public bool playerAlive;
     public bool playerCanTakeDamage;
 
     //locations
@@ -31,7 +31,6 @@ public class PlayerVariables : MonoBehaviour
 
     //Upgrades
     public int totalJumps;
-    public bool invincibleJumpUnlocked = false;
 
 
     // Start is called before the first frame update

@@ -10,8 +10,9 @@ public class PlayerRotate : MonoBehaviour
 
 
     Quaternion upright;
-
     Vector3 rotateMove;
+
+    public bool keyboardInputUsed = true;
 
     void Start()
     {
@@ -22,18 +23,26 @@ public class PlayerRotate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+      
       if(jumpscript.grounded){
         transform.rotation = upright;
       }
       else //if in the air
       {
-          rb2D.freezeRotation = false;
-          if (Input.GetButton("Rotate Right")){  //e or right
-              transform.Rotate(new Vector3( 0f, 0f, -1f) , rotateSpeed * Time.deltaTime, Space.Self);
-          }
-          else if(Input.GetButton("Rotate Left")){  //q or left
-              transform.Rotate(new Vector3( 0f, 0f, -1f) , -rotateSpeed * Time.deltaTime, Space.Self);
-          }
+            rb2D.freezeRotation = false;
+            if (keyboardInputUsed) {
+                if (Input.GetButton("Rotate Right")){  //e or right
+                     transform.Rotate(new Vector3( 0f, 0f, -1f) , rotateSpeed * Time.deltaTime, Space.Self);
+                }
+                else if(Input.GetButton("Rotate Left")){  //q or left
+                     transform.Rotate(new Vector3( 0f, 0f, -1f) , -rotateSpeed * Time.deltaTime, Space.Self);
+                }
+            }
+            else if (!keyboardInputUsed)
+            {
+
+            }
       }
 
     }

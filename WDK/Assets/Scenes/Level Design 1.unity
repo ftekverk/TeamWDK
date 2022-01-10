@@ -1567,7 +1567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotateSpeed: 450
-  rotateSpeedMouse: 7
+  rotateSpeedMouse: 9
   mouseForRotation: 1
 --- !u!50 &1067680288
 Rigidbody2D:
@@ -2437,11 +2437,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5813025589377293272, guid: 48259ccfce6e33b4da614f1dbca76d9f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.33
+      value: 7.18
       objectReference: {fileID: 0}
     - target: {fileID: 5813025589377293272, guid: 48259ccfce6e33b4da614f1dbca76d9f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 14.86
+      value: 14.35
       objectReference: {fileID: 0}
     - target: {fileID: 5813025589377293272, guid: 48259ccfce6e33b4da614f1dbca76d9f, type: 3}
       propertyPath: m_LocalPosition.z

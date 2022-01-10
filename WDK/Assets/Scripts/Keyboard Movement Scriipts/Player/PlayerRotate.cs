@@ -11,8 +11,6 @@ public class PlayerRotate : MonoBehaviour
     float angle;
     float startRotationOffset = 90;
 
-
-
     Quaternion upright;
     Vector3 rotateMove;
     Vector3 mousePos;
@@ -50,7 +48,14 @@ public class PlayerRotate : MonoBehaviour
             }
             else if (mouseForRotation)
             {
-                transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, startRotationOffset + angle), rotateSpeedMouse * Time.deltaTime);
+                if (Input.GetMouseButton(0))
+                {
+                     transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, startRotationOffset + angle), rotateSpeedMouse * Time.deltaTime);
+                }
+                else if (Input.GetMouseButtonUp(0) || !Input.GetMouseButton(0))
+                {
+                    transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, 0), rotateSpeedMouse * Time.deltaTime);
+                }
             }
       }
 

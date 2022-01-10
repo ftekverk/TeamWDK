@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     private PlayerVariables playerStats;
+    private PlayerRotate rotate;
 
     //public Animator animator;
     public Rigidbody2D rb;
@@ -33,6 +34,7 @@ public class PlayerJump : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerStats = GetComponent<PlayerVariables>();
+        rotate = GetComponent<PlayerRotate>();
 
         jumpForce = playerStats.jumpForce;
         bootForce = playerStats.bootForce;
@@ -48,13 +50,29 @@ public class PlayerJump : MonoBehaviour
         jumpDirection.Normalize();
         jumpDirection = jumpDirection / 2f;
 
-        if ((Input.GetButtonDown("Jump"))) //jump is w, space, up
+        if (!rotate.mouseForRotation)
         {
-            if(playerStats.grounded) FirstJump();
-            else AdditionalJump();
-            grounded = false;
+            if (Input.GetButtonDown("Jump")) //jump is w, space, up
+            {
+                if (playerStats.grounded) FirstJump();
+                else AdditionalJump();
+                grounded = false;
+            }
         }
-
+        else
+        {
+            if (Input.GetButtonDown("Jump") && playerStats.grounded)
+            {
+                FirstJump();
+                grounded = false;
+            }
+            else if (Input.GetMouseButtonUp(0))
+            {
+                AdditionalJump();
+                grounded = false;
+            }
+            
+        }
     }
 
     //If we call firstjump, we can then call secondjump

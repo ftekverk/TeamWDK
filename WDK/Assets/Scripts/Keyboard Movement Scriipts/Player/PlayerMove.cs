@@ -14,7 +14,7 @@ public class PlayerMove : MonoBehaviour
 
      private PlayerVariables playerScripts;
     private PlayerJump jumpscript;
-    private float hInput;
+    public float hInput;
     private float runSpeed;
 
     // Start is called before the first frame update
@@ -32,7 +32,8 @@ public class PlayerMove : MonoBehaviour
     {
         hInput = Input.GetAxis("Horizontal");
         //if we're grounded we can move horizontally
-        if (jumpscript.grounded || jumpscript.pulseJumpsUsed == 0){
+        if (jumpscript.grounded || jumpscript.pulseJumpsUsed == 0 || (jumpscript.pulseJumpsUsed > 0 && rb.velocity.y < 0 && hInput != 0))
+        {
             rb.velocity = new Vector2(hInput * runSpeed, rb.velocity.y);
             if (hInput > 0) spriteRenderer.flipX = true;
             else if (hInput < 0) spriteRenderer.flipX = false;

@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerJump : MonoBehaviour
 {
     private PlayerVariables playerStats;
+    private PlayerMove playerMove;
     private PlayerRotate rotate;
 
     //public Animator animator;
@@ -35,6 +36,7 @@ public class PlayerJump : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerStats = GetComponent<PlayerVariables>();
         rotate = GetComponent<PlayerRotate>();
+        playerMove = GetComponent<PlayerMove>();
 
         jumpForce = playerStats.jumpForce;
         bootForce = playerStats.bootForce;
@@ -98,8 +100,9 @@ public class PlayerJump : MonoBehaviour
           if(playerStats.invincibleJumpUnlocked){
               StartCoroutine(immunityDelay());
           }
-          //our second jump we move towards the head, maintaining some fraction of our original velocity
-          rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+            //our second jump we move towards the head, maintaining some fraction of our original velocity
+            //rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+            rb.velocity = new Vector2((jumpDirection.x * bootForce) + (.25f * rb.velocity.x),(jumpDirection.y * bootForce) + (.25f * rb.velocity.y)); // This is the same thing(I think) but easier to adjust in the future - J
 
         }
 

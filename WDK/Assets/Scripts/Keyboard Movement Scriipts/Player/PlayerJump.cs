@@ -23,7 +23,7 @@ public class PlayerJump : MonoBehaviour
     private float jumpForce;
     private float bootForce;
     //Used to find direction of our jump
-    private Vector2 jumpDirection;
+    public Vector2 jumpDirection;
 
     //check if invincible jump is unlocked
     private SpriteRenderer spriteRenderer;

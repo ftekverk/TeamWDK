@@ -2811,6 +2811,8 @@ MonoBehaviour:
   rotateSpeed: 450
   rotateSpeedMouse: 7
   mouseForRotation: 0
+  head: {fileID: 0}
+  feet: {fileID: 0}
 --- !u!114 &1625754738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2823,6 +2825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e95f59cb4e47b4b9c18e1151a8e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hInput: 0
 --- !u!114 &1625754739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2993,8 +2996,8 @@ MonoBehaviour:
   playerHealth: 3
   playerAlive: 0
   runSpeed: 8
-  jumpForce: 1
-  bootForce: 2
+  jumpForce: 12
+  bootForce: 24
   playerCanTakeDamage: 0
   head: {fileID: 1367043573}
   feet: {fileID: 1373639968}

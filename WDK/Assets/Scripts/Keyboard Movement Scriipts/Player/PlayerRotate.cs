@@ -27,8 +27,9 @@ public class PlayerRotate : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         upright = transform.rotation;
         jumpscript = GetComponent<PlayerJump>();
-        // verticalVector = head.position - feet.position;
-        // verticalVector.Normalize();
+
+        verticalVector = head.position - feet.position;
+        verticalVector.Normalize();
     }
 
     // Update is called once per frame
@@ -54,13 +55,15 @@ public class PlayerRotate : MonoBehaviour
             }
             else if (mouseForRotation)
             {
-                if (Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0) && jumpscript.additionalJump)
                 {
                      transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, startRotationOffset + angle), rotateSpeedMouse * Time.deltaTime);
                 }
-                else if (Input.GetMouseButtonUp(0) || !Input.GetMouseButton(0))
+                else if (Input.GetMouseButtonUp(0) || !Input.GetMouseButton(0) || !jumpscript.additionalJump)
                 {
-                   transform.rotation = Quaternion.Lerp(transform.rotation, upright, rotateSpeedMouse * Time.deltaTime);
+                  // transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0 , 0), rotateSpeedMouse * Time.deltaTime);
+                //   transform.rotation = Quaternion.FromToRotation(jumpscript.jumpDirection, verticalVector);
+                 transform.rotation = Quaternion.RotateTowards(transform.rotation, upright, 0.1f);
                 }
             }
       }

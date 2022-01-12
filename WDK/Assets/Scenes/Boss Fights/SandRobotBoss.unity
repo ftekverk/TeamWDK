@@ -273,11 +273,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb4b3034913744238518546540d4824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  invincibleJumpUnlocked: 0
+  playerHealth: 3
+  playerAlive: 1
   runSpeed: 8
   jumpForce: 12
   bootForce: 24
-  playerHealth: 3
-  playerAlive: 1
   playerCanTakeDamage: 0
   head: {fileID: 140424436}
   feet: {fileID: 2136728522}
@@ -287,7 +288,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   totalJumps: 0
-  invincibleJumpUnlocked: 0
 --- !u!114 &65664220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e95f59cb4e47b4b9c18e1151a8e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hInput: 0
 --- !u!114 &65664224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -371,6 +372,8 @@ MonoBehaviour:
   rotateSpeed: 450
   rotateSpeedMouse: 7
   mouseForRotation: 1
+  head: {fileID: 140424436}
+  feet: {fileID: 2136728522}
 --- !u!50 &65664225
 Rigidbody2D:
   serializedVersion: 4
@@ -410,6 +413,7 @@ MonoBehaviour:
   additionalJump: 0
   pulseJumpsUsed: 0
   grounded: 0
+  jumpDirection: {x: 0, y: 0}
 --- !u!212 &65664227
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1707,6 +1711,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 208078407c239424a946bfd93a029849, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerinvincibleJumpUnlocked: 0
+  playerHealth: 3
+  playerAlive: 0
 --- !u!4 &821611906
 Transform:
   m_ObjectHideFlags: 0

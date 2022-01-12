@@ -19,17 +19,20 @@ public class PlayerRotate : MonoBehaviour
     public bool mouseForRotation = false;
 
     private Vector2 verticalVector;
-    public Transform head;
-    public Transform feet;
+    private Transform head;
+    private Transform feet;
 
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         upright = transform.rotation;
         jumpscript = GetComponent<PlayerJump>();
+        feet = this.gameObject.transform.GetChild(0).transform;
+        head = this.gameObject.transform.GetChild(1).transform;
 
         verticalVector = head.position - feet.position;
         verticalVector.Normalize();
+
     }
 
     // Update is called once per frame

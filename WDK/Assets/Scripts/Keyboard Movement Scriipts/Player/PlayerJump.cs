@@ -11,7 +11,7 @@ public class PlayerJump : MonoBehaviour
     //public Animator animator;
     public Rigidbody2D rb;
 
-    public Transform head;
+    private Transform head;
     public bool additionalJumpCalled;
     public bool additionalJump;  //true if able to double jump
 
@@ -37,6 +37,7 @@ public class PlayerJump : MonoBehaviour
         playerStats = GetComponent<PlayerVariables>();
         rotate = GetComponent<PlayerRotate>();
         playerMove = GetComponent<PlayerMove>();
+        head = this.gameObject.transform.GetChild(1).transform;
 
         jumpForce = playerStats.jumpForce;
         bootForce = playerStats.bootForce;

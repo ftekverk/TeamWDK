@@ -21,8 +21,7 @@ public class PlayerVariables : MonoBehaviour
     public bool playerCanTakeDamage;
 
     //locations
-    public Transform head;
-    public Transform feet;
+    private Transform feet;
 
     //jumping and grounded variables
     public bool grounded;
@@ -40,6 +39,7 @@ public class PlayerVariables : MonoBehaviour
         playerAlive = true;
         playerCanTakeDamage = true;
         checkRadius = 0.35f;
+        feet = this.gameObject.transform.GetChild(0).transform;
     }
 
     // Update is called once per frame

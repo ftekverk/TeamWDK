@@ -13,7 +13,7 @@ public class BootPulse : MonoBehaviour
     private float pulseSpeed = 10f;
 
     //variables to set location of boot spawn
-    public Transform feet;
+    private Transform feet;
     public Vector2 pulseDirection;
     public Vector2 pulseSpawnLocation;
     private Vector2 feet2Dposition;
@@ -21,6 +21,7 @@ public class BootPulse : MonoBehaviour
 
     void Start(){
       jumpscript =  GetComponent<PlayerJump>();
+      feet = this.gameObject.transform.GetChild(0).transform;
     }
 
     void Update()

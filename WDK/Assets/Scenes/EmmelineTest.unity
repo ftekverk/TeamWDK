@@ -2218,7 +2218,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1373639967}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.8, y: -5.5, z: 0}
+  m_LocalPosition: {x: -0.43, y: -4.59, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1625754733}
@@ -2655,6 +2655,7 @@ GameObject:
   - component: {fileID: 1625754742}
   - component: {fileID: 1625754743}
   - component: {fileID: 1625754744}
+  - component: {fileID: 1625754745}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -2702,7 +2703,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7d00c3b3d929dd54bbf7e4981697d82c, type: 3}
+  m_Sprite: {fileID: -4289559785752760036, guid: 476ab33b99a04604894708cb94569a9e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2721,14 +2722,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1625754731}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.97, z: -1.2682}
+  m_LocalPosition: {x: -0.25, y: 1.86, z: -1.2682}
   m_LocalScale: {x: 0.32722747, y: 0.32722747, z: 3.2722747}
   m_Children:
   - {fileID: 1373639968}
   - {fileID: 1367043573}
   - {fileID: 1896636793}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1625754734
 MonoBehaviour:
@@ -2742,17 +2743,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3d8529e4396a49a8aeab57ee8311599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 1625754744}
   rb: {fileID: 1625754735}
-  jumpForce: 10
-  bootForce: 20
   head: {fileID: 1367043573}
-  isAlive: 1
   additionalJumpCalled: 0
   additionalJump: 0
   pulseJumpsUsed: 0
   grounded: 0
-  spriteRenderer: {fileID: 0}
 --- !u!50 &1625754735
 Rigidbody2D:
   serializedVersion: 4
@@ -2787,18 +2783,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.00000023841858, y: -0.3607173}
+  m_Offset: {x: -0.22475922, y: -0.0568738}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 12}
+    oldSize: {x: 7.25, y: 10}
     newSize: {x: 11.81, y: 11.81}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.9000316, y: 10.173915}
+  m_Size: {x: 2.9793608, y: 9.566228}
   m_EdgeRadius: 0
 --- !u!114 &1625754737
 MonoBehaviour:
@@ -2812,7 +2808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 050e238cc68ec477a9a2af9962e03d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpscript: {fileID: 1625754734}
   rotateSpeed: 450
   rotateSpeedMouse: 7
   mouseForRotation: 0
@@ -2828,9 +2823,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e95f59cb4e47b4b9c18e1151a8e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 8
-  jumpscript: {fileID: 1625754734}
-  hInput: 0
 --- !u!114 &1625754739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2858,8 +2850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bootPulsePrefab: {fileID: 3872054429313324755, guid: 1f5244d295e2d417c80e9ae1de339bb2, type: 3}
-  jumpscript: {fileID: 1625754734}
-  pulseSpeed: 15
   feet: {fileID: 1373639968}
   pulseDirection: {x: 0, y: 0}
   pulseSpawnLocation: {x: 0, y: 0}
@@ -2875,8 +2865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615bbccab5a99343884e1cbb425b622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulseScript: {fileID: 1625754740}
-  jumpScript: {fileID: 1625754734}
   pulseDirection: {x: 0, y: 0}
 --- !u!114 &1625754742
 MonoBehaviour:
@@ -2890,8 +2878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9615bbccab5a99343884e1cbb425b622, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pulseScript: {fileID: 1625754740}
-  jumpScript: {fileID: 1625754734}
   pulseDirection: {x: 0, y: 0}
 --- !u!120 &1625754743
 LineRenderer:
@@ -3003,9 +2989,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb4b3034913744238518546540d4824, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  runSpeed: 8
+  invincibleJumpUnlocked: 0
   playerHealth: 3
   playerAlive: 0
+  runSpeed: 8
+  jumpForce: 1
+  bootForce: 2
   playerCanTakeDamage: 0
   head: {fileID: 1367043573}
   feet: {fileID: 1373639968}
@@ -3015,7 +3004,25 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   totalJumps: 0
-  invincibleJumpUnlocked: 0
+--- !u!95 &1625754745
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1625754731}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3ac93515e504c394d92d6fd80c8c752c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1644798649
 GameObject:
   m_ObjectHideFlags: 0
@@ -3468,7 +3475,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1896636792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.12, y: -5.12, z: 0}
+  m_LocalPosition: {x: 0.5, y: -4.14, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1625754733}
@@ -3601,7 +3608,7 @@ Transform:
   m_Children:
   - {fileID: 1533353966}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2020820677
 GameObject:

@@ -9,11 +9,13 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
 
+
     private float hMove;
 
 
      private PlayerVariables playerScripts;
     private PlayerJump jumpscript;
+    private PlayerAnimation player_anim;
     public float hInput;
     private float runSpeed;
 
@@ -25,12 +27,16 @@ public class PlayerMove : MonoBehaviour
         playerScripts = GetComponent<PlayerVariables>();
         jumpscript = GetComponent<PlayerJump>();
         runSpeed = playerScripts.runSpeed;
+        player_anim = GetComponent<PlayerAnimation>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         hInput = Input.GetAxis("Horizontal");
+
+        //tell animator the player horizontal input
+        player_anim.speed = hInput;
         //if we're grounded we can move horizontally
         if (jumpscript.grounded || jumpscript.pulseJumpsUsed == 0 || (jumpscript.pulseJumpsUsed > 0 && rb.velocity.y < 5 && hInput != 0))
         {

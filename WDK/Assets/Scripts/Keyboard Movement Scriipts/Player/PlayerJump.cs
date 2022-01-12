@@ -7,6 +7,7 @@ public class PlayerJump : MonoBehaviour
     private PlayerVariables playerStats;
     private PlayerMove playerMove;
     private PlayerRotate rotate;
+    private PlayerAnimation player_anim;
 
     //public Animator animator;
     public Rigidbody2D rb;
@@ -37,6 +38,8 @@ public class PlayerJump : MonoBehaviour
         playerStats = GetComponent<PlayerVariables>();
         rotate = GetComponent<PlayerRotate>();
         playerMove = GetComponent<PlayerMove>();
+        player_anim = GetComponent<PlayerAnimation>();
+
         head = this.gameObject.transform.GetChild(1).transform;
 
         jumpForce = playerStats.jumpForce;
@@ -56,6 +59,13 @@ public class PlayerJump : MonoBehaviour
         if(grounded){
             pulseJumpsUsed = 0;
             additionalJump = true;
+            //tell animator player is on ground
+            player_anim.isGrounded = true;
+        } else {
+            player_anim.isGrounded = false;
+            if(rb.velocity.y < 0){
+                player_anim.isJumping = false;
+            }
         }
         if (!rotate.mouseForRotation)
         {
@@ -78,20 +88,29 @@ public class PlayerJump : MonoBehaviour
                 AdditionalJump();
                 grounded = false;
             }
-            
+
         }
     }
 
     //If we call firstjump, we can then call secondjump
     public void FirstJump()
     {
-      rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        //tell animator player is jumping
+        player_anim.isJumping = true;
+
+        //change velocity
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     //If we use our secondjump, we can no longer call double jump
     public void AdditionalJump()
     {
+
         if(additionalJump && !grounded){ //if we have another jump
+
+          //tell animator player is jumping
+          player_anim.isJumping = true;
+
           additionalJumpCalled = true;
           //count how many pulse jumps we've used
           pulseJumpsUsed++;

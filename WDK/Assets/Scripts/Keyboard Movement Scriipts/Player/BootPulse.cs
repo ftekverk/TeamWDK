@@ -18,6 +18,7 @@ public class BootPulse : MonoBehaviour
     public Vector2 pulseSpawnLocation;
     private Vector2 feet2Dposition;
 
+
     void Start(){
       jumpscript =  GetComponent<PlayerJump>();
     }

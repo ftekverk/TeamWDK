@@ -1554,6 +1554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba4e95f59cb4e47b4b9c18e1151a8e2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hInput: 0
 --- !u!114 &1067680287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1569,6 +1570,8 @@ MonoBehaviour:
   rotateSpeed: 450
   rotateSpeedMouse: 9
   mouseForRotation: 1
+  head: {fileID: 2078107502}
+  feet: {fileID: 946228067}
 --- !u!50 &1067680288
 Rigidbody2D:
   serializedVersion: 4

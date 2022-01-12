@@ -52,6 +52,10 @@ public class PlayerJump : MonoBehaviour
         jumpDirection.Normalize();
         jumpDirection = jumpDirection / 2f;
 
+        if(grounded){
+            pulseJumpsUsed = 0;
+            additionalJump = true;
+        }
         if (!rotate.mouseForRotation)
         {
             if (Input.GetButtonDown("Jump")) //jump is w, space, up
@@ -80,15 +84,13 @@ public class PlayerJump : MonoBehaviour
     //If we call firstjump, we can then call secondjump
     public void FirstJump()
     {
-      additionalJump = true;
-      pulseJumpsUsed = 0;
       rb.velocity = new Vector2(rb.velocity.x, jumpForce);
     }
 
     //If we use our secondjump, we can no longer call double jump
     public void AdditionalJump()
     {
-        if(additionalJump){ //if we have another jump
+        if(additionalJump && !grounded){ //if we have another jump
           additionalJumpCalled = true;
           //count how many pulse jumps we've used
           pulseJumpsUsed++;

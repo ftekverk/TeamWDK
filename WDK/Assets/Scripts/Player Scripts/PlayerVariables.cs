@@ -40,6 +40,8 @@ public class PlayerVariables : MonoBehaviour
         playerCanTakeDamage = true;
         checkRadius = 0.35f;
         feet = this.gameObject.transform.GetChild(0).transform;
+
+
     }
 
     // Update is called once per frame
@@ -53,6 +55,11 @@ public class PlayerVariables : MonoBehaviour
     public void damagePlayer()
     {
         if (playerCanTakeDamage) StartCoroutine(damageDelay());
+    }
+
+    public void SavePlayer(){
+        GlobalControl.Instance.playerHealth = playerHealth;
+        GlobalControl.Instance.totalJumps = totalJumps;
     }
 
     IEnumerator damageDelay()

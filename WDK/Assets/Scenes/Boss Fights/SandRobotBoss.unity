@@ -180,7 +180,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 161559425}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a22188e2e1ae64225807615d286dec6a, type: 3}
   m_Name: 
@@ -1211,7 +1211,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerinvincibleJumpUnlocked: 0
   playerHealth: 3
-  playerAlive: 0
+  totalJumps: 2
 --- !u!4 &821611906
 Transform:
   m_ObjectHideFlags: 0
@@ -1224,7 +1224,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842413183
 GameObject:
@@ -2551,9 +2551,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfe9453b4692ee944833c7e50816fda8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAlive: 1
-  isInvincible: 0
-  health: 1
 --- !u!1 &1943364705
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,7 +13,6 @@ public class PlayerVariables : MonoBehaviour
     public float playerHealth = 3f;
     public bool playerAlive;
    
-   
     public float runSpeed = 8f;
     public float jumpForce = 1f;
     public float bootForce = 2f;

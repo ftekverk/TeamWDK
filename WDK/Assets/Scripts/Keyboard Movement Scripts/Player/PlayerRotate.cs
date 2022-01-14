@@ -44,6 +44,7 @@ public class PlayerRotate : MonoBehaviour
 
         if (jumpscript.grounded){
         transform.rotation = upright;
+        rb2D.freezeRotation = true;
       }
       else //if in the air
       {
@@ -60,6 +61,7 @@ public class PlayerRotate : MonoBehaviour
             {
                 if (Input.GetMouseButton(0) && jumpscript.additionalJump)
                 {
+                    rb2D.freezeRotation = false;
                      transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0, startRotationOffset + angle), rotateSpeedMouse * Time.deltaTime);
                 }
                 else if (Input.GetMouseButtonUp(0) || !Input.GetMouseButton(0) || !jumpscript.additionalJump)

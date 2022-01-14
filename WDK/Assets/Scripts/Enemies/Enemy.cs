@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Enemy : MonoBehaviour, Damaging
+public abstract class Enemy : MonoBehaviour
 {
     private bool isAlive = true;
     private bool isInvincible = false;

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public abstract class Enemy : MonoBehaviour
 {
-    private bool isAlive = true;
-    private bool isInvincible = false;
+    //private bool isAlive = true;
+    //private bool isInvincible = false;
     [SerializeField] float health;
 
     public virtual float GetDamage() => 1f;
@@ -14,7 +14,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void TakeDamage(float damage) {
         health -= damage;
         if (health <= 0) {
-            isAlive = false;
+            //isAlive = false;
             OnDie();
         }
     }

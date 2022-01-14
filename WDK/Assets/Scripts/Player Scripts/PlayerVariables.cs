@@ -34,10 +34,12 @@ public class PlayerVariables : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalJumps = 3;
+        totalJumps = GlobalControl.Instance.totalJumps;
+
+        // totalJumps = 3;
         playerAlive = true;
         playerCanTakeDamage = true;
-        checkRadius = 0.35f;
+        // checkRadius = 0.35f;
         feet = this.gameObject.transform.GetChild(0).transform;
 
 

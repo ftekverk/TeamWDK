@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class GlobalControl : MonoBehaviour
 {
+    public static GlobalControl Instance;
 
     //hp
     //xp
@@ -13,7 +14,6 @@ public class GlobalControl : MonoBehaviour
     public float playerHealth = 3f;
     public int totalJumps = 2; 
 
-    public static GlobalControl Instance;
     void Awake()
     {
         if(Instance == null){

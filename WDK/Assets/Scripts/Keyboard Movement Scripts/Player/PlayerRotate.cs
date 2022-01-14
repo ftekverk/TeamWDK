@@ -47,7 +47,7 @@ public class PlayerRotate : MonoBehaviour
       }
       else //if in the air
       {
-            rb2D.freezeRotation = false;
+            //rb2D.freezeRotation = false;
             if (!mouseForRotation) {
                 if (Input.GetButton("Rotate Right")){  //e or right
                      transform.Rotate(new Vector3( 0f, 0f, -1f) , rotateSpeed * Time.deltaTime, Space.Self);
@@ -64,9 +64,9 @@ public class PlayerRotate : MonoBehaviour
                 }
                 else if (Input.GetMouseButtonUp(0) || !Input.GetMouseButton(0) || !jumpscript.additionalJump)
                 {
-                  // transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0 , 0), rotateSpeedMouse * Time.deltaTime);
-                //   transform.rotation = Quaternion.FromToRotation(jumpscript.jumpDirection, verticalVector);
-                 transform.rotation = Quaternion.RotateTowards(transform.rotation, upright, 0.1f);
+                   //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0 , 0), rotateSpeedMouse * Time.deltaTime);
+                   //transform.rotation = Quaternion.FromToRotation(jumpscript.jumpDirection, verticalVector);
+                   transform.rotation = Quaternion.RotateTowards(transform.rotation, upright, 0.1f);
                 }
             }
       }

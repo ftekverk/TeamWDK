@@ -24,7 +24,7 @@ public class BootsLineCast : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
         if (!playerStats.grounded) //if not grounded, draw a line to the next collider
         {
             pulseDirection = pulseScript.pulseDirection;
@@ -40,7 +40,7 @@ public class BootsLineCast : MonoBehaviour
             {
                 lr.enabled = false;
             }
-    
+
         }
 
     }

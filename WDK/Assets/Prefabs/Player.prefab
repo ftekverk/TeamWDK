@@ -20,7 +20,6 @@ GameObject:
   - component: {fileID: 484988776519220689}
   - component: {fileID: 484988776519220716}
   - component: {fileID: 484988776519220717}
-  - component: {fileID: 484988776519220715}
   - component: {fileID: 484988776519220712}
   m_Layer: 6
   m_Name: Player
@@ -279,19 +278,6 @@ MonoBehaviour:
   bootPulsePrefab: {fileID: 3872054429313324755, guid: 1f5244d295e2d417c80e9ae1de339bb2, type: 3}
   pulseDirection: {x: 0, y: 0}
   pulseSpawnLocation: {x: 0, y: 0}
---- !u!114 &484988776519220715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 484988776519220713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9615bbccab5a99343884e1cbb425b622, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pulseDirection: {x: 0, y: 0}
 --- !u!120 &484988776519220712
 LineRenderer:
   m_ObjectHideFlags: 0

@@ -128,7 +128,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 484988776519220714, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
   m_PrefabInstance: {fileID: 484988776571160881}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1193831885}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb4b3034913744238518546540d4824, type: 3}
@@ -1769,6 +1769,48 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1193831885 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 484988776519220713, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
+  m_PrefabInstance: {fileID: 484988776571160881}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1193831886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193831885}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f75c7b1449a924305a6fe19a5de2230e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  whatIsGrappleable:
+    serializedVersion: 2
+    m_Bits: 1024
+  grappleStart: {fileID: 1583317980}
+  maxGrappleDistance: 10
+--- !u!231 &1193831887
+SpringJoint2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193831885}
+  m_Enabled: 1
+  serializedVersion: 4
+  m_EnableCollision: 0
+  m_ConnectedRigidBody: {fileID: 0}
+  m_BreakForce: Infinity
+  m_BreakTorque: Infinity
+  m_AutoConfigureConnectedAnchor: 0
+  m_Anchor: {x: 0, y: 0}
+  m_ConnectedAnchor: {x: 0, y: 0}
+  m_AutoConfigureDistance: 1
+  m_Distance: 1
+  m_DampingRatio: 0
+  m_Frequency: 1
 --- !u!1 &1242537509
 GameObject:
   m_ObjectHideFlags: 0
@@ -2363,6 +2405,36 @@ Transform:
   - {fileID: 1156081019}
   m_Father: {fileID: 2079573269}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1583317979
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1583317980}
+  m_Layer: 0
+  m_Name: Grapple
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1583317980
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1583317979}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1, z: 0}
+  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_Children: []
+  m_Father: {fileID: 65664228}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757412809
 GameObject:
@@ -3111,11 +3183,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 484988776519220693, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.049
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 484988776519220693, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.51
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 484988776519220693, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -3149,6 +3221,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 484988776519220712, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 484988776519220713, guid: 206b35618d09d412f8b4d3013e5160a2, type: 3}
       propertyPath: m_Name
       value: Player
@@ -3176,11 +3252,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5820327478832511223, guid: c78588424de191048813da98bfcf01ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: -5.07
       objectReference: {fileID: 0}
     - target: {fileID: 5820327478832511223, guid: c78588424de191048813da98bfcf01ce, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3
+      value: 1.26
       objectReference: {fileID: 0}
     - target: {fileID: 5820327478832511223, guid: c78588424de191048813da98bfcf01ce, type: 3}
       propertyPath: m_LocalPosition.z

@@ -38,7 +38,7 @@ public class PlayerMove : MonoBehaviour
         //tell animator the player horizontal input
         player_anim.speed = hInput;
         //if we're grounded we can move horizontally
-        if (jumpscript.grounded || jumpscript.pulseJumpsUsed == 0 || (jumpscript.pulseJumpsUsed > 0 /*&& rb.velocity.y < 5 && hInput != 0*/))
+        if (jumpscript.grounded || jumpscript.pulseJumpsUsed == 0 /*|| (jumpscript.pulseJumpsUsed > 0 /*&& rb.velocity.y < 5 && hInput != 0)*/)
         {
             rb.velocity = new Vector2(hInput * runSpeed, rb.velocity.y);
             if (hInput > 0) spriteRenderer.flipX = true;

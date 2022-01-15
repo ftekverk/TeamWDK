@@ -123,8 +123,8 @@ public class PlayerJump : MonoBehaviour
               StartCoroutine(immunityDelay());
           }
             //our second jump we move towards the head, maintaining some fraction of our original velocity
-            //rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
-            rb.velocity = new Vector2((jumpDirection.x * bootForce) + (.25f * rb.velocity.x),(jumpDirection.y * bootForce) + (.25f * rb.velocity.y)); // This is the same thing(I think) but easier to adjust in the future - J
+            rb.velocity = (jumpDirection * bootForce) + 0.25f*rb.velocity;
+            // rb.velocity = new Vector2((jumpDirection.x * bootForce) + (.25f * rb.velocity.x),(jumpDirection.y * bootForce) + (.25f * rb.velocity.y)); // This is the same thing(I think) but easier to adjust in the future - J
 
         }
 

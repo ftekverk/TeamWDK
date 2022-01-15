@@ -10,7 +10,7 @@ public class PlayerVariables : MonoBehaviour
 
 //Things to Transfer to new scene -- anything else?
     public bool invincibleJumpUnlocked = false;
-    public float playerHealth = 3f;
+    public float playerHealth;
     public bool playerAlive;
    
     public float runSpeed = 8f;
@@ -35,6 +35,7 @@ public class PlayerVariables : MonoBehaviour
     void Start()
     {
         totalJumps = GlobalControl.Instance.totalJumps;
+        playerHealth = GlobalControl.Instance.playerHealth;
 
         // totalJumps = 3;
         playerAlive = true;

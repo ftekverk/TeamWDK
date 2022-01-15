@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Finn Scene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Boss Fights/SandRobotBoss.unity
+    guid: e5ee6da1e081148b28ccb08477dd34a0
+  - enabled: 1
+    path: Assets/Scenes/Level Design 1.unity
+    guid: 665cf2924879a485ab3676fbb4b379eb
   m_configObjects: {}

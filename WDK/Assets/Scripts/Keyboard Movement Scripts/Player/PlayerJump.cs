@@ -22,7 +22,7 @@ public class PlayerJump : MonoBehaviour
     public bool grounded;
 
     private float jumpForce;
-    private float bootForce;
+    public float bootForce;
     //Used to find direction of our jump
     public Vector2 jumpDirection;
 

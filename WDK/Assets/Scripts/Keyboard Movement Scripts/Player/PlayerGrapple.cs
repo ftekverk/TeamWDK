@@ -27,7 +27,6 @@ public class PlayerGrapple : MonoBehaviour
 
     void Update()
     {
-        DrawGrapple();
         if (Input.GetMouseButtonDown(1)){
             StartGrapple();
         }
@@ -43,10 +42,9 @@ public class PlayerGrapple : MonoBehaviour
         grappleDirection =  mousePosWS - grappleStart.position;
         grappleStartVector = grappleStart.position;
 
-        RaycastHit2D hit = Physics2D.Raycast(grappleStartVector, grappleDirection, maxGrappleDistance);  //cant do "out" with Physics2D
+        RaycastHit2D hit = Physics2D.Raycast(grappleStartVector, grappleDirection, maxGrappleDistance, whatIsGrappleable);  //cant do "out" with Physics2D
         // Debug.DrawRay(grappleStartVector, grappleDirection, Color.green);
         if(Physics2D.Raycast(grappleStartVector, grappleDirection, maxGrappleDistance, whatIsGrappleable)){
-          Debug.Log("Here");
           grappleContact = hit.point;
           springJoint = this.gameObject.AddComponent<SpringJoint2D>();
           springJoint.autoConfigureConnectedAnchor = false;
@@ -56,19 +54,29 @@ public class PlayerGrapple : MonoBehaviour
 
           float distanceFromPoint = Vector2.Distance(grappleStartVector, grappleContact);
 
-          springJoint.distance = distanceFromPoint * 0.8f;
-          springJoint.dampingRatio = 1;
+          springJoint.distance = distanceFromPoint;
+          springJoint.dampingRatio = 0.4f;
+
+          lr.positionCount = 2;
+          // DrawGrapple();
         }
 
     }
 
+    void LateUpdate(){
+      DrawGrapple();
+    }
+
     void DrawGrapple(){
+      if(!springJoint) return;
       lr.SetPosition(0, grappleStart.position);
       lr.SetPosition(1, grappleContact);
     }
 
 
     void StopGrapple(){
+      lr.positionCount = 0;
+      Destroy(springJoint);
 
     }
 }

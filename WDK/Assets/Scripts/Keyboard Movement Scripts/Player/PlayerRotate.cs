@@ -68,6 +68,7 @@ public class PlayerRotate : MonoBehaviour
                 {
                    //transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, 0 , 0), rotateSpeedMouse * Time.deltaTime);
                    //transform.rotation = Quaternion.FromToRotation(jumpscript.jumpDirection, verticalVector);
+                   
                    transform.rotation = Quaternion.RotateTowards(transform.rotation, upright, 0.1f);
                 }
             }

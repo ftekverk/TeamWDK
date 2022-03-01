@@ -62,11 +62,8 @@ public class PlayerJump1 : MonoBehaviour
     private void IsGrounded()
     {
         //groundLayer is set to "Ground"
-
         //TO DO
-        // Collider2D groundCheck = 
-        // if (groundCheck) grounded = true;
-        // else             grounded = false;
+     
     }
 }
 
